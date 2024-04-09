@@ -2,15 +2,107 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Audiophile | E-commerce{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
         {% block stylesheets %}
+          <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
         {% endblock %}
 
         {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
+      <header class="header">
+        <div class="header-container container">
+          <a href="/">
+            <img alt="Audiophile logo" />
+          </a>
+          <nav class="header-nav">
+            <ul class="header-nav-list">
+              <li>
+                <a href="/">HOME</a>
+              </li>
+              <li>
+                <a href="/headphones">HEADPHONES</a>
+              </li>
+              <li>
+                <a href="/speakers">SPEAKERS</a>
+              </li>
+              <li>
+                <a href="/earphones">EARPHONES</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header-cart">
+            <img  alt="Open the basket" />
+          </div> 
+          <div class="header-link">
+            <a
+              href="/login"
+              class="header-login"
+            >
+              <img alt="Link to your profile" />
+            </a>
+            <div class="header-menu"></div>
+            {# <Menu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} /> #}
+          </div>
+        </div>
+        <div class="border-bottom container-img"></div>
+      </header>
         {% block body %}{% endblock %}
+        <footer class="footer">
+            <div class="footer-container container">
+                <div class="footer-border" />
+                <div class="footer-hero">
+                <img
+                    class="footer-hero-img"
+                    alt="Audiophile logo"
+                />
+                <ul class="footer-hero-link">
+                    <li>
+                        <a href="/">HOME</a>
+                    </li>
+                    <li>
+                        <a href="/headphones">HEADPHONES</a>
+                    </li>
+                    <li>
+                        <a href="/speakers">SPEAKERS</a>
+                    </li>
+                    <li>
+                        <a href="/earphones">EARPHONES</a>
+                    </li>
+                </ul>
+                </div>
+                <p class="footer-text text">
+                    Audiophile is an all in one stop to fulfill your audio needs. We're a
+                    small team of music lovers and sound specialists who are devoted to
+                    helping you get the most out of personal audio. Come and visit our
+                    demo facility - we’re open 7 days a week.
+                </p>
+                <div class="footer-link">
+                <p class="footer-link-copyright text">
+                    Copyright 2024. All Rights Reserved
+                </p>
+                <div class="footer-link-img">
+                    <li>
+                        <img "src={facebookLogo}" alt="Facebook logo" />
+                    </li>
+                    <li>
+                        <img "src={twitterLogo}" alt="Twitter logo" />
+                    </li>
+                    <li>
+                        <img "src={instagramLogo}" alt="Instagram logo" />
+                    </li>
+                </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

@@ -1,0 +1,56 @@
+.login {
+  &-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    letter-spacing: 1.143px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 14rem;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    max-width: 44rem;
+    margin: auto;
+
+    &-input {
+      width: 100%;
+
+      label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.214px;
+      }
+
+      input {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #cfcfcf;
+        padding: 1.8rem 1.4rem 1.9rem 2.4rem;
+        margin-top: 9px;
+      }
+    }
+  }
+
+  &-toSignin {
+    display: flex;
+    justify-content: center;
+    gap: 0.2rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 14rem;
+    font-size: 1.2rem;
+
+    a {
+      font-weight: 700;
+      // letter-spacing: -0.214px;
+      color: #000;
+      text-decoration: underline #d87d4a;
+    }
+  }
+}
