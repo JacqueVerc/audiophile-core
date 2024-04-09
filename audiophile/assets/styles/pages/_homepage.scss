@@ -1,0 +1,214 @@
+@use "../base/mixins" as *;
+
+.hero-container {
+  &-text {
+    color: #ffffff;
+    text-align: center;
+    padding: 10.8rem 0 11.2rem 0;
+    max-width: 32.8rem;
+    margin: auto;
+
+    @include mq(tablet) {
+      max-width: 39.6rem;
+      padding: 12.6rem 0 16.7rem 0;
+    }
+
+    @include mq(laptop) {
+      margin-left: 4rem;
+      text-align: left;
+      padding: 12.8rem 0 15.8rem 0;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+      letter-spacing: 1rem;
+      opacity: 0.5;
+      margin-bottom: 1.6rem;
+
+      @include mq(tablet) {
+        margin-bottom: 2.4rem;
+      }
+    }
+
+    p {
+      opacity: 0.75;
+      margin: 2.4rem 0 2.8rem 0;
+
+      @include mq(tablet) {
+        margin: auto;
+        margin-top: 2.4rem;
+        margin-bottom: 4rem;
+        max-width: 34.9rem;
+      }
+
+      @include mq(laptop) {
+        margin: 2.4rem 0 4rem 0;
+      }
+    }
+  }
+
+  &-img {
+    background-image: url("/assets/home/mobile/image-header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 90%;
+
+    @include mq(tablet) {
+      background-image: url("/assets/home/tablet/image-header.jpg");
+    }
+
+    @include mq(laptop) {
+      background-image: url("/assets/home/desktop/image-hero.jpg");
+    }
+
+    @include mq(desktop) {
+      background-position: 0;
+    }
+  }
+}
+
+// Home Products style
+.homeProducts {
+  &-zx9 {
+    background-color: #d87d4a;
+    border-radius: 8px;
+    color: #ffffff;
+    background-image: url("/assets/home/mobile/pattern-circles.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center -13rem;
+
+    @include mq(tablet) {
+      background-size: initial;
+      background-position: center -28.5rem;
+    }
+
+    @include mq(laptop) {
+      display: flex;
+      overflow: hidden;
+      background-position: -18rem -1rem;
+    }
+
+    @include mq(desktop) {
+      gap: 13.828rem;
+      background-position: -15rem -2rem;
+    }
+
+    &-img {
+      width: 17.225rem;
+      padding-top: 5.5rem;
+      margin: auto;
+
+      @include mq(tablet) {
+        width: 19.721rem;
+      }
+
+      @include mq(laptop) {
+        width: 41.023rem;
+        padding-top: 9.6rem;
+        margin: 0 0 -1.5rem 8.749rem;
+      }
+
+      @include mq(desktop) {
+        margin-left: 11.749rem;
+        padding-top: 7.69rem;
+      }
+    }
+
+    &-text {
+      padding: 3.2rem 0 5.5rem 0;
+      max-width: 28rem;
+      margin: auto;
+      text-align: center;
+
+      @include mq(tablet) {
+        padding: 6.4rem 0;
+        max-width: 34.9rem;
+      }
+
+      @include mq(laptop) {
+        text-align: start;
+      }
+
+      @include mq(desktop) {
+        margin: 0;
+        padding: 13.3rem 0 12.4rem 0;
+      }
+
+      p {
+        margin: 2.4rem 0;
+        opacity: 0.75;
+
+        @include mq(tablet) {
+          margin: 2.4rem 0 4rem 0;
+        }
+      }
+    }
+  }
+
+  &-zx7 {
+    padding: 10.1rem 0 10.1rem 2.4rem;
+    background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 2.4rem 0;
+    border-radius: 8px;
+
+    @include mq(tablet) {
+      padding: 10.1rem 0 10.1rem 6.2rem;
+      background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
+      margin: 3.2rem 0;
+    }
+
+    @include mq(laptop) {
+      background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
+      padding: 10.1rem 0 10.1rem 9.5rem;
+    }
+  }
+
+  &-yx1 {
+    @include mq(tablet) {
+      display: flex;
+      gap: 1.1rem;
+
+      @include mq(laptop) {
+        gap: 3rem;
+      }
+
+      &-img {
+        flex: 1;
+
+        @include mq(laptop) {
+          flex: none;
+        }
+      }
+    }
+
+    img {
+      border-radius: 8px;
+    }
+
+    &-text {
+      margin-top: 2.4rem;
+      background-color: #f1f1f1;
+      border-radius: 8px;
+      padding: 4.1rem 0 4.1rem 2.4rem;
+
+      @include mq(tablet) {
+        margin-top: 0;
+        padding: 10.1rem 5.1rem 10.1rem 4.1rem;
+      }
+
+      @include mq(laptop) {
+        padding: 10.1rem 0 10.1rem 7rem;
+        flex: 1;
+      }
+
+      @include mq(desktop) {
+        padding: 10.1rem 0 10.1rem 9.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@use "../base/mixins" as *;
+
+.shopLink {
+  display: flex;
+  flex-direction: column;
+  gap: 6.8rem;
+  padding-top: 5.2rem;
+
+  @include mq(tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  @include mq(laptop) {
+    gap: 3rem;
+    padding-top: 5.9rem;
+  }
+
+  &-content {
+    background-color: #f1f1f1;
+    position: relative;
+    border-radius: 8px;
+    height: 16.5rem;
+    transition: scale 0.3s ease-in-out;
+
+    @include mq(tablet) {
+      flex: 1;
+    }
+
+    @include mq(laptop) {
+      height: 20.4rem;
+    }
+
+    &:hover {
+      scale: 1.1;
+      transition: scale 0.3s ease-in-out;
+    }
+
+    &-img {
+      position: absolute;
+      top: -4.2rem;
+      left: 50%;
+      transform: translate(-50%);
+      width: fit-content;
+      height: 12rem;
+
+      @include mq(laptop) {
+        height: 16rem;
+        top: -6rem;
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 8.88rem;
+
+      @include mq(laptop) {
+        margin-top: 11.6rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 1.07143px;
+        margin-bottom: 1.7rem;
+      }
+
+      &-link {
+        font-weight: 700;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0.5;
+        display: flex;
+        align-items: center;
+        gap: 1.332rem;
+      }
+    }
+  }
+}
+
+// The container links for the shopLinks
+.links {
+  margin: 4rem 0 12rem;
+
+  @include mq(tablet) {
+    margin: 9.6rem 0;
+  }
+
+  @include mq(laptop) {
+    margin: 12.75rem 0 16.8rem 0;
+  }
+}

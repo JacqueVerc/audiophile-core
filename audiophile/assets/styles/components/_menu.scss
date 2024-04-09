@@ -1,0 +1,31 @@
+@use "../base/mixins" as *;
+
+.header-menu {
+  @include mq(tablet) {
+    margin-right: 4.2rem;
+  }
+
+  @include mq(laptop) {
+    display: none;
+  }
+
+  &-bg {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    top: 9.1rem;
+    right: 0;
+    left: 0;
+    z-index: 2;
+
+    &-white {
+      background-color: #ffffff;
+      padding: 3.2rem 0 3.5rem 0;
+      border-radius: 0px 0px 8px 8px;
+
+      @include mq(tablet) {
+        padding: 5.6rem 0 6.7rem 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@use "../base/mixins" as *;
+
+.header {
+  background-color: #191919;
+  position: relative;
+
+  &-container {
+    padding: 3.2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mq(laptop) {
+      padding: 3.2rem 0 3.7rem 0;
+    }
+  }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  &-login {
+    filter: invert(1);
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  &-nav {
+    display: none;
+
+    @include mq(laptop) {
+      display: block;
+      margin-left: -10rem;
+
+      &-list {
+        display: flex;
+        gap: 3.4rem;
+        font-size: 1.3rem;
+        line-height: 2.5rem;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+    }
+  }
+}

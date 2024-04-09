@@ -1,0 +1,30 @@
+.checkout {
+  background-color: #f1f1f1;
+
+  &-form {
+    background-color: #fff;
+    padding: 2.4rem;
+  }
+}
+
+.form {
+  color: #000;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+  }
+
+  &-input {
+    flex: 1 0 30.9rem; // A Améliorer
+
+    input {
+      border-radius: 8px;
+      border: 1px solid #cfcfcf;
+      background: #fff;
+      padding: 1.8rem 2.4rem 1.9rem 2.4rem;
+      width: 100%;
+    }
+  }
+}
