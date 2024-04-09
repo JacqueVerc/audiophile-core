@@ -7,3 +7,9 @@
 import './styles/app.scss';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+const headerMenu = document.querySelector('.header-menu');
+
+headerMenu.addEventListener('click', () => {
+  console.log('header menu clicked');
+});
