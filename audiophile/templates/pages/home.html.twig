@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Audiophile | Home{% endblock %}
+
+{% block body %}
+    <main>
+      <section class="hero">
+        <div class="hero-container container-img">
+          <div class="hero-container-img">
+            <div class="hero-container-text">
+              <h2>NEW PRODUCT</h2>
+              <h1 class="big-title">XX99 Mark II HeadphoneS</h1>
+              <p class="text">
+                Experience natural, lifelike audio and exceptional build quality
+                made for the passionate music enthusiast.
+              </p>
+              <a href="/" class="btn btn-orange">See Product</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="links">
+        <section class="shopLink container">
+          <a class="shopLink-content" href="/headphones">
+            <img class="shopLink-content-img" alt="Link to headphones" />
+            <div class="shopLink-content-text">
+              <h3 class="shopLink-content-title">HEADPHONES</h3>
+              <div class="shopLink-content-text-link">
+                <p>Shop</p>
+                <img alt="Arrow to the shop" />
+              </div>
+            </div>
+          </a>
+          <a class="shopLink-content" href="/speakers">
+            <img class="shopLink-content-img" alt="Link to speakers" />
+            <div class="shopLink-content-text">
+              <h3 class="shopLink-content-title">SPEAKERS</h3>
+              <div class="shopLink-content-text-link">
+                <p>Shop</p>
+                <img alt="Arrow to the shop" />
+              </div>
+            </div>
+          </a>
+          <a class="shopLink-content" href="/earphones">
+            <img class="shopLink-content-img" src={earphones} alt="Link to earphones" />
+            <div class="shopLink-content-text">
+              <h3 class="shopLink-content-title">EARPHONES</h3>
+              <div class="shopLink-content-text-link">
+                <p>Shop</p>
+                <img alt="Arrow to the shop" />
+              </div>
+            </div>
+          </a>
+        </section>
+      </section>
+      <section class="homeProducts container">
+        <div class="homeProducts-zx9">
+          <picture class="homeProducts-zx9-img">
+            <source media="(min-width: 1024px)" />
+            <source media="(min-width: 768px)" />
+            <img alt="Picture of the ZX9 speaker" />
+          </picture>
+          <div class="homeProducts-zx9-text">
+            <h3 class="big-title">ZX9 SPEAKER</h3>
+            <p class="text">
+              Upgrade to premium speakers that are phenomenally built to deliver
+              truly remarkable sound.
+            </p>
+            <a href="/" class="btn btn-black">See Product</a>
+          </div>
+        </div>
+        <div class="homeProducts-zx7">
+          <h3 class="homeProducts-title homeProducts-title-space">
+            ZX7 SPEAKER
+          </h3>
+          <a href="/" class="btn btn-transparent">See Product</a>
+        </div>
+        <div class="homeProducts-yx1">
+          <picture class="homeProducts-yx1-img">
+            <source media="(min-width: 1024px)" />
+            <source media="(min-width: 768px)" />
+            <img alt="Picture of the ZX9 speaker" />
+          </picture>
+          <div class="homeProducts-yx1-text">
+            <h3 class="homeProducts-title homeProducts-title-space">
+              YX1 EARPHONES
+            </h3>
+            <a href="/" class="btn btn-transparent">See Product</a>
+          </div>
+        </div>
+      </section>
+      <section class="gearLocation container">
+        <div class="gearLocation-content">
+          <picture class="gearLocation-content-img">
+            <source media="(min-width: 1024px)" />
+            <source media="(min-width: 768px)" />
+            <img alt="Picture of someone trying the XX99 HeadPhones" />
+          </picture>
+          <div class="gearLocation-content-text">
+            <h3 class="gearLocation-content-title">
+              Bringing you the <span>best</span> audio gear
+            </h3>
+            <p class="text">
+              Located at the heart of New York City, Audiophile is the premier
+              store for high end headphones, earphones, speakers, and audio
+              accessories. We have a large showroom and luxury demonstration rooms
+              available for you to browse and experience a wide range of our
+              products. Stop by our store to meet some of the fantastic people who
+              make Audiophile the best place to buy your portable audio equipment.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+{% endblock %}
