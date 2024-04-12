@@ -22,32 +22,32 @@
       <section class="links">
         <section class="shopLink container">
           <a class="shopLink-content" href="/headphones">
-            <img class="shopLink-content-img" alt="Link to headphones" />
+            <img src={{asset('/images/shared/image-category-thumbnail-headphones.png')}} class="shopLink-content-img" alt="Link to headphones" />
             <div class="shopLink-content-text">
               <h3 class="shopLink-content-title">HEADPHONES</h3>
               <div class="shopLink-content-text-link">
                 <p>Shop</p>
-                <img alt="Arrow to the shop" />
+                <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
               </div>
             </div>
           </a>
           <a class="shopLink-content" href="/speakers">
-            <img class="shopLink-content-img" alt="Link to speakers" />
+            <img src={{asset('/images/shared/image-category-thumbnail-speakers.png')}} class="shopLink-content-img" alt="Link to speakers" />
             <div class="shopLink-content-text">
               <h3 class="shopLink-content-title">SPEAKERS</h3>
               <div class="shopLink-content-text-link">
                 <p>Shop</p>
-                <img alt="Arrow to the shop" />
+                <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
               </div>
             </div>
           </a>
           <a class="shopLink-content" href="/earphones">
-            <img class="shopLink-content-img" src={earphones} alt="Link to earphones" />
+            <img src={{asset('/images/shared/image-category-thumbnail-earphones.png')}} class="shopLink-content-img" src={earphones} alt="Link to earphones" />
             <div class="shopLink-content-text">
               <h3 class="shopLink-content-title">EARPHONES</h3>
               <div class="shopLink-content-text-link">
                 <p>Shop</p>
-                <img alt="Arrow to the shop" />
+                <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
               </div>
             </div>
           </a>
@@ -92,9 +92,9 @@
       <section class="gearLocation container">
         <div class="gearLocation-content">
           <picture class="gearLocation-content-img">
-            <source media="(min-width: 1024px)" />
-            <source media="(min-width: 768px)" />
-            <img alt="Picture of someone trying the XX99 HeadPhones" />
+            <source srcset={{asset('/images/desktop/image-best-gear.jpg')}} media="(min-width: 1024px)" />
+            <source srcset={{asset('/images/tablet/image-best-gear.jpg')}} media="(min-width: 768px)" />
+            <img src={{asset('/images/mobile/image-best-gear.jpg')}} alt="Picture of someone trying the XX99 HeadPhones" />
           </picture>
           <div class="gearLocation-content-text">
             <h3 class="gearLocation-content-title">

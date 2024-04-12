@@ -22,7 +22,7 @@
       <header class="header">
         <div class="header-container container">
           <a href="/">
-            <img alt="Audiophile logo" />
+            <img src={{asset('/images/icons/logo.svg')}} alt="Audiophile logo" />
           </a>
           <nav class="header-nav">
             <ul class="header-nav-list">
@@ -40,24 +40,26 @@
               </li>
             </ul>
           </nav>
-          <div class="header-cart">
-            <img  alt="Open the basket" />
-          </div> 
-          <div class="header-link">
-            <a href="/login" class="header-login">
-              <img alt="Link to your profile" />
-            </a>
-            <div class="header-menu">
-              Click
-            </div>
-            <div class="header-menu" aria-label="To open or close the menu">
-              <img className="header-menu-logo" alt="Menu" />
+          <div class="header-right"> 
+            <div class="header-cart">
+              <img src={{asset('/images/icons/icon-cart.svg')}}  alt="Open the basket" />
+            </div> 
+            <div class="header-link">
+              <a href="/login" class="header-login">
+                <img src={{asset('/images/icons/login.svg')}} alt="Link to your profile" />
+              </a>
+              <div class="header-menu">
+                Click
+              </div>
+              <div class="header-menu" aria-label="To open or close the menu">
+                <img className="header-menu-logo" alt="Menu" />
               {# header-menu-bg doit être de base en display none le JS doit être fait #}
                 {# <div className="header-menu-bg">
                   <div className="header-menu-bg-white">
                     <ShopLinks />
                   </div>
                 </div> #}
+            </div>
             </div>
           </div>
         </div>
@@ -72,6 +74,7 @@
           <div class="footer-hero">
             <img
                 class="footer-hero-img"
+                src="{{asset('/images/icons/logo.svg')}}"
                 alt="Audiophile logo"
             />
             <ul class="footer-hero-link">
@@ -101,13 +104,13 @@
             </p>
             <div class="footer-link-img">
               <li>
-                <img alt="Facebook logo" />
+                <img src="{{asset('/images/icons/icon-facebook.svg')}}" alt="Facebook logo" />
               </li>
               <li>
-                <img alt="Twitter logo" />
+                <img src="{{asset('/images/icons/icon-twitter.svg')}}" alt="Twitter logo" />
               </li>
               <li>
-                <img alt="Instagram logo" />
+                <img src={{asset('/images/icons/icon-instagram.svg')}} alt="Instagram logo" />
               </li>
             </div>
           </div>
