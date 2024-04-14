@@ -37,6 +37,9 @@ class Product
     #[ORM\Column]
     private ?bool $available = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -133,6 +136,18 @@ class Product
     public function setAvailable(bool $available): static
     {
         $this->available = $available;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }
