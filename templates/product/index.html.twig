@@ -1,20 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Audiophile | Home{% endblock %}
+{% block title %}Audiophile | {{ product.name }}{% endblock %}
 
 {% block body %}
     <main>
-      <section class="hero">
-        <div class="hero-container container-img">
-          <div class="hero-container-img">
-            <div class="hero-container-text">
-              <h2>NEW PRODUCT</h2>
-              <h1 class="big-title">XX99 Mark II HeadphoneS</h1>
-              <p class="text">
-                Experience natural, lifelike audio and exceptional build quality
-                made for the passionate music enthusiast.
-              </p>
-              <a href="/category/headphones/xx99-mark-two-headphones" class="btn btn-orange">See Product</a>
+      <section class="detail container">
+        {# <a class="goBack text" href="/category/{{category.name}}">
+          Go Back
+        </a> #}
+
+        <div class="detail-product">
+          <picture class="detail-product-img">
+            <source media="(min-width: 1024px)" />
+            <source media="(min-width: 768px)" />
+            <img alt="" />
+          </picture>
+          <div class="detail-product-content">
+            <h4 class="new-product">NEW PRODUCT</h4>
+            <h2 class="mid-title">{{ product.name|upper }}</h2>
+            <p class="text">
+              {{ product.description }}
+            </p>
+            <p class="detail-product-content-price">$ {{ product.price }}</p>
+
+            <div class="add-to-cart">
+              <div class="add-to-cart-number">
+                <button>-</button>
+                <p>0</p>
+                <button>+</button>
+              </div>
+              <button class="btn btn-orange">Add to cart</button>
             </div>
           </div>
         </div>
@@ -52,42 +67,6 @@
             </div>
           </a>
         </section>
-      </section>
-      <section class="homeProducts container">
-        <div class="homeProducts-zx9">
-          <picture class="homeProducts-zx9-img">
-            <source media="(min-width: 1024px)" />
-            <source media="(min-width: 768px)" />
-            <img alt="Picture of the ZX9 speaker" />
-          </picture>
-          <div class="homeProducts-zx9-text">
-            <h3 class="big-title">ZX9 SPEAKER</h3>
-            <p class="text">
-              Upgrade to premium speakers that are phenomenally built to deliver
-              truly remarkable sound.
-            </p>
-            <a href="/" class="btn btn-black">See Product</a>
-          </div>
-        </div>
-        <div class="homeProducts-zx7">
-          <h3 class="homeProducts-title homeProducts-title-space">
-            ZX7 SPEAKER
-          </h3>
-          <a href="/" class="btn btn-transparent">See Product</a>
-        </div>
-        <div class="homeProducts-yx1">
-          <picture class="homeProducts-yx1-img">
-            <source media="(min-width: 1024px)" />
-            <source media="(min-width: 768px)" />
-            <img alt="Picture of the ZX9 speaker" />
-          </picture>
-          <div class="homeProducts-yx1-text">
-            <h3 class="homeProducts-title homeProducts-title-space">
-              YX1 EARPHONES
-            </h3>
-            <a href="/" class="btn btn-transparent">See Product</a>
-          </div>
-        </div>
       </section>
       <section class="gearLocation container">
         <div class="gearLocation-content">
