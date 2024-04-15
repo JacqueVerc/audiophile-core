@@ -50,17 +50,17 @@
   }
 
   &-img {
-    background-image: url("/assets/home/mobile/image-header.jpg");
+    background-image: url("/images/mobile/image-header.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center 90%;
 
     @include mq(tablet) {
-      background-image: url("/assets/home/tablet/image-header.jpg");
+      background-image: url("/images/tablet/image-header.jpg");
     }
 
     @include mq(laptop) {
-      background-image: url("/assets/home/desktop/image-hero.jpg");
+      background-image: url("/images/desktop/image-hero.jpg");
     }
 
     @include mq(desktop) {
@@ -75,7 +75,7 @@
     background-color: #d87d4a;
     border-radius: 8px;
     color: #ffffff;
-    background-image: url("/assets/home/mobile/pattern-circles.svg");
+    background-image: url("/images/icons/pattern-circles.svg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center -13rem;
@@ -150,7 +150,7 @@
 
   &-zx7 {
     padding: 10.1rem 0 10.1rem 2.4rem;
-    background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
+    background-image: url("/images/mobile/image-speaker-zx7.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 2.4rem 0;
@@ -158,12 +158,12 @@
 
     @include mq(tablet) {
       padding: 10.1rem 0 10.1rem 6.2rem;
-      background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
+      background-image: url("/images/tablet/image-speaker-zx7.jpg");
       margin: 3.2rem 0;
     }
 
     @include mq(laptop) {
-      background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
+      background-image: url("/images/desktop/image-speaker-zx7.jpg");
       padding: 10.1rem 0 10.1rem 9.5rem;
     }
   }

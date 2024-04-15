@@ -10,6 +10,10 @@
   }
 
   &-bg {
+    display: none;
+  }
+
+  &-bg.active {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
