@@ -21,3 +21,24 @@ menu.addEventListener("click", () => {
   menu.classList.toggle("active");
   showMenu.classList.toggle("active");
 });
+
+// Get the modal (nécessite une meilleure organisation du code)
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.querySelector(".close");
+
+//  Open the modal
+btn.onclick = () => {
+  modal.style.display = "block";
+};
+
+// Close the modal
+span.onclick = () => {
+  modal.style.display = "none";
+};
+
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
