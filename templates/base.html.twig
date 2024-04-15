@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <title>{% block title %}Audiophile | E-commerce{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {# <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap"
           rel="stylesheet"
-        />
+        /> #}
         {% block stylesheets %}
           <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
         {% endblock %}
@@ -48,17 +48,47 @@
               <a href="/login" class="header-login">
                 <img src={{asset('/images/icons/login.svg')}} alt="Link to your profile" />
               </a>
-              <div class="header-menu">
-                Click
-              </div>
               <div class="header-menu" aria-label="To open or close the menu">
-                <img className="header-menu-logo" alt="Menu" />
+                <img src={{asset('/images/icons/icon-hamburger.svg')}} class="header-menu-logo" alt="Menu" />
               {# header-menu-bg doit être de base en display none le JS doit être fait #}
-                {# <div className="header-menu-bg">
-                  <div className="header-menu-bg-white">
-                    <ShopLinks />
+                <div class="header-menu-bg">
+                  <div class="header-menu-bg-white">
+                    <section class="links">
+                      <section class="shopLink container">
+                        <a class="shopLink-content" href="/headphones">
+                          <img src={{asset('/images/shared/image-category-thumbnail-headphones.png')}} class="shopLink-content-img" alt="Link to headphones" />
+                          <div class="shopLink-content-text">
+                            <h3 class="shopLink-content-title">HEADPHONES</h3>
+                            <div class="shopLink-content-text-link">
+                              <p>Shop</p>
+                              <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
+                            </div>
+                          </div>
+                        </a>
+                        <a class="shopLink-content" href="/speakers">
+                          <img src={{asset('/images/shared/image-category-thumbnail-speakers.png')}} class="shopLink-content-img" alt="Link to speakers" />
+                          <div class="shopLink-content-text">
+                            <h3 class="shopLink-content-title">SPEAKERS</h3>
+                            <div class="shopLink-content-text-link">
+                              <p>Shop</p>
+                              <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
+                            </div>
+                          </div>
+                        </a>
+                        <a class="shopLink-content" href="/earphones">
+                          <img src={{asset('/images/shared/image-category-thumbnail-earphones.png')}} class="shopLink-content-img" src={earphones} alt="Link to earphones" />
+                          <div class="shopLink-content-text">
+                            <h3 class="shopLink-content-title">EARPHONES</h3>
+                            <div class="shopLink-content-text-link">
+                              <p>Shop</p>
+                              <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
+                            </div>
+                          </div>
+                        </a>
+                      </section>
+                    </section>
                   </div>
-                </div> #}
+                </div>
             </div>
             </div>
           </div>
