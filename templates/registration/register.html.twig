@@ -8,7 +8,10 @@
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
+<div class="login-form-input">
+    <label for="inputEmail">{{ form_label(registrationForm.email) }}</label>
+    {{ form_widget(registrationForm.email) }}
+</div>
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}

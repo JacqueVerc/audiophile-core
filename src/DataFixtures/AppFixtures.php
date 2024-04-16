@@ -2,15 +2,21 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Cart;
+use App\Entity\CartLine;
 use App\Entity\Category;
 use App\Entity\Media;
 use App\Entity\Product;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Exception;
 
 class AppFixtures extends Fixture
 {
+    /**
+     * @throws Exception
+     */
     public function load(ObjectManager $manager): void
     {
         $produit = new Product();
@@ -105,8 +111,21 @@ class AppFixtures extends Fixture
         $user->setName('Jean');
         $user->setFirstName('Mich');
 
-
         $manager->persist($user);
+
+        $cart = new Cart();
+        $cart->setUser($user);
+
+        $cartLine = new CartLine();
+        $cartLine->setCart($cart);
+        $cartLine->setProduct($produit);
+        $cartLine->setQuantity(2);
+
+        $cart->addCartLine($cartLine);
+
+        $manager->persist($cartLine);
+
+        $manager->persist($cart);
 
         $manager->flush();
     }
