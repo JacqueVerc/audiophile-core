@@ -1,20 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!{% endblock %}
+{% block title %}Audiophile | Checkout{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <main class="checkout">
+      <section class="checkout-summary container">
+        <h1>Summary</h1>
+        <div class="summary-content">
+          <div class="summary-article">
+            <div class="summary-article-left">
+              <div class="summary-article-img">
+                <img src={{asset('/images/image-xx99-mark-two-headphones.jpg')}} alt="" />
+              </div>
+              <div class="summary-article-text">
+                <h3>XX99MKII</h3>
+                <p>$ 599</p>
+              </div>
+            </div>
+            <div class="summary-article-right">
+              <p>x2</p>
+            </div>
+          </div>
+          <div class="summary-article">
+            <div class="summary-article-left">
+              <div class="summary-article-img">
+                <img src={{asset('/images/image-xx99-mark-two-headphones.jpg')}} alt="" />
+              </div>
+              <div class="summary-article-text">
+                <h3>XX99MKII</h3>
+                <p>$ 599</p>
+              </div>
+            </div>
+            <div class="summary-article-right">
+              <p>x2</p>
+            </div>
+          </div>
+        </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/jacqu/xampp/htdocs/Symfony/audiophile/audiophile-core/src/Controller/CartController.php</code></li>
-        <li>Your template at <code>C:/Users/jacqu/xampp/htdocs/Symfony/audiophile/audiophile-core/templates/cart/index.html.twig</code></li>
-    </ul>
-</div>
+        <div class="summary-infos">
+          <div class="summary-infos-article">
+            <h2>total</h2>
+            <p>$ 1198</p>
+          </div>
+          <div class="summary-infos-article">
+            <h2>Shipping</h2>
+            <p>$ 50</p>
+          </div>
+          <div class="summary-infos-article">
+            <h2>Estimated Tax</h2>
+            <p>$ 90</p>
+          </div>
+          <div class="summary-infos-article">
+            <h2>VAT (included)</h2>
+            <p>$ 200</p>
+          </div>
+        </div>
+        <button class="btn btn-orange">Continue & Pay</button>
+      </section>
+    </main>
 {% endblock %}
