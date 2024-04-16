@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class CartController extends AbstractController
 {
     #[Route('/cart', name: 'app_cart')]
-    public function index(UserRepository $userRepository, CartRepository $cartRepository, CartLineRepository $cartLineRepository): Response
+    public function getCartLines(UserRepository $userRepository, CartRepository $cartRepository, CartLineRepository $cartLineRepository): Response
     {
         $cart = $cartRepository->findOneBy(['user' => $this->getUser()]);
 
