@@ -35,23 +35,4 @@ class CategoryController extends AbstractController
             'product' => $product,
         ]);
     }
-
-    #[Route('/{category}/{products}/add/{number}', name: 'app_category_category_products_add_number')]
-    public function addProductToCart(string $products, int $number, ProductRepository $productRepository, CartRepository $cartRepository, ObjectManager $manager): Response
-    {
-        $cart = $cartRepository->findOneBy(['user' => $this->getUser()]);
-
-        $cartLine = new CartLine();
-        $cartLine->setProduct($productRepository->findOneBy( [ 'slug' => $products ]));
-        $cartLine->setCart($cart);
-        $cartLine->setQuantity($number);
-
-        $cart->addCartLine($cartLine);
-
-        dd($cartLine, $cart);
-
-//        return $this->render('product/index.html.twig', [
-//            'product' => $product,
-//        ]);
-    }
 }
