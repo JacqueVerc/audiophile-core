@@ -1,0 +1,16 @@
+{% for cartLine in cartLines %}
+  <div class="summary-article">
+    <div class="summary-article-left">
+      <div class="summary-article-img">
+        <img src={{asset('/images/image-xx99-mark-two-headphones.jpg')}} alt="" />
+      </div>
+      <div class="summary-article-text">
+        <h3>{{ cartLine.product.name | upper }}</h3>
+        <p>$ {{ cartLine.product.price }}</p>
+      </div>
+    </div>
+    <div class="summary-article-right">
+      <p>x{{ cartLine.quantity }}</p>
+    </div>
+  </div>
+{% endfor %}

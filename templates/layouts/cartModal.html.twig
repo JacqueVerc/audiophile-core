@@ -5,29 +5,17 @@
       <section class="checkout-summary">
         <h1>Summary</h1>
         <div class="summary-content">
-          <div class="summary-article">
-            <div class="summary-article-left">
-              <div class="summary-article-img">
-                <img src={{asset('/images/image-xx99-mark-two-headphones.jpg')}} alt="" />
-              </div>
-              <div class="summary-article-text">
-                <h3>XX99MKII</h3>
-                <p>$ 599</p>
-              </div>
-            </div>
-            <div class="summary-article-right">
-              <p>x2</p>
-            </div>
-          </div>
+          {# {% include('cart/cartPartial.html.twig') %} #}
         </div>
 
         <div class="summary-infos">
           <div class="summary-infos-article">
             <h2>total</h2>
             <p>$ 1198</p>
+            {# <p>$ {{sum}}</p> #}
           </div>
         </div>
-        <button class="btn btn-orange">See checkout</button>
+        <a href="/cart" class="btn btn-orange">See checkout</a>
       </section>
   </div>
 </div>
