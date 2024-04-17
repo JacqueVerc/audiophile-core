@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\CartLine;
+use App\Processor\CartProcessor;
 use App\Repository\CartLineRepository;
 use App\Repository\CartRepository;
 use App\Repository\ProductRepository;
@@ -40,38 +41,14 @@ class CartController extends AbstractController
     /**
      * @throws OptimisticLockException
      * @throws ORMException
+     * @throws \Doctrine\DBAL\Driver\Exception
      */
     #[Route('/cart/add/{product}/{quantity}', name: 'app_category_category_products_add_number')]
-    public function addProductToCart(int $product, int $quantity, ProductRepository $productRepository, CartRepository $cartRepository, CartLineRepository $cartLineRepository, EntityManagerInterface $manager): Response
+    public function addProductToCart(int $product, int $quantity, CartRepository $cartRepository, CartLineRepository $cartLineRepository, CartProcessor $cartProcessor): Response
     {
-        try {
-            $manager->beginTransaction();
-
             $cart = $cartRepository->findOneBy(['user' => $this->getUser()]);
             $cartLine = $cartLineRepository->findCartLineByProduct($product);
-
-            if ($cartLine) {
-
-                $cartLine->setQuantity($cartLine->getQuantity()+$quantity);
-                $manager->persist($cartLine);
-            } else {
-
-                $cartLine = new CartLine();
-                $cartLine->setProduct($productRepository->findOneBy(['id' => $product]));
-                $cartLine->setCart($cart);
-                $cartLine->setQuantity($quantity);
-                $manager->persist($cartLine);
-
-                $cart->addCartLine($cartLine);
-            }
-
-            $manager->flush();
-
-        }
-        catch (Exception $exception) {
-            $manager->rollback();
-            throw new Exception($exception);
-        }
+            $cartProcessor->addToCart($cart, $cartLine, $product, $quantity);
 
         return $this->redirectToRoute('app_cart');
 
