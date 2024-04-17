@@ -50,40 +50,7 @@
               {# header-menu-bg doit être de base en display none le JS doit être fait #}
                 <div class="header-menu-bg">
                   <div class="header-menu-bg-white">
-                    <section class="links">
-                      <section class="shopLink container">
-                        <a class="shopLink-content" href="/headphones">
-                          <img src={{asset('/images/shared/image-category-thumbnail-headphones.png')}} class="shopLink-content-img" alt="Link to headphones" />
-                          <div class="shopLink-content-text">
-                            <h3 class="shopLink-content-title">HEADPHONES</h3>
-                            <div class="shopLink-content-text-link">
-                              <p>Shop</p>
-                              <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
-                            </div>
-                          </div>
-                        </a>
-                        <a class="shopLink-content" href="/speakers">
-                          <img src={{asset('/images/shared/image-category-thumbnail-speakers.png')}} class="shopLink-content-img" alt="Link to speakers" />
-                          <div class="shopLink-content-text">
-                            <h3 class="shopLink-content-title">SPEAKERS</h3>
-                            <div class="shopLink-content-text-link">
-                              <p>Shop</p>
-                              <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
-                            </div>
-                          </div>
-                        </a>
-                        <a class="shopLink-content" href="/earphones">
-                          <img src={{asset('/images/shared/image-category-thumbnail-earphones.png')}} class="shopLink-content-img" src={earphones} alt="Link to earphones" />
-                          <div class="shopLink-content-text">
-                            <h3 class="shopLink-content-title">EARPHONES</h3>
-                            <div class="shopLink-content-text-link">
-                              <p>Shop</p>
-                              <img src={{asset('/images/icons/icon-arrow-right.svg')}} alt="Arrow to the shop" />
-                            </div>
-                          </div>
-                        </a>
-                      </section>
-                    </section>
+                    {% include "layouts/link.html.twig" %}
                   </div>
                 </div>
             </div>
@@ -91,6 +58,7 @@
           </div>
         </div>
         <div class="border-bottom container-img"></div>
+        {% include('layouts/cartModal.html.twig') %}
       </header>
 
       {% block body %}{% endblock %}

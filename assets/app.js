@@ -8,12 +8,6 @@ import "./styles/app.scss";
 
 console.log("This log comes from assets/app.js - welcome to AssetMapper! 🎉");
 
-// const headerMenu = document.querySelector('.header-menu');
-
-// headerMenu.addEventListener('click', () => {
-//   console.log('header menu clicked');
-// });
-
 const menu = document.querySelector(".header-menu");
 const showMenu = document.querySelector(".header-menu-bg");
 
@@ -28,17 +22,33 @@ const btn = document.getElementById("myBtn");
 const span = document.querySelector(".close");
 
 //  Open the modal
-btn.onclick = () => {
-  modal.style.display = "block";
-};
+if (btn) {
+  btn.onclick = () => {
+    modal.style.display = "block";
+  };
+}
 
 // Close the modal
-span.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (event) => {
-  if (event.target == modal) {
+if (span) {
+  span.onclick = () => {
     modal.style.display = "none";
-  }
-};
+  };
+}
+
+if (modal) {
+  window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+
+// Modal pour le panier
+const modalCart = document.querySelector('.header-cart');
+const showCart = document.querySelector('.modal-cart');
+
+modalCart.addEventListener('click', () => {
+  modalCart.classList.toggle('show');
+  showCart.classList.toggle('show');
+});
+

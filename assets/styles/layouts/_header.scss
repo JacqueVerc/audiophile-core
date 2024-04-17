@@ -2,9 +2,9 @@
 
 .header {
   background-color: #191919;
-  position: relative;
 
   &-container {
+    position: relative;
     padding: 3.2rem 0;
     display: flex;
     justify-content: space-between;
@@ -52,5 +52,98 @@
   &-right {
     display: flex;
     gap: 2rem;
+  }
+  .modal-cart {
+    display: none;
+
+    &.show {
+      display: block;
+      position: absolute;
+      height: 100vh;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 3;
+
+      .modal-cart-inside {
+        margin-top: 2.4rem;
+
+        @include mq(laptop) {
+          margin-top: 3.2rem;
+        }
+      }
+
+      .checkout-summary {
+        max-width: 37.7rem;
+        margin-left: auto;
+      }
+
+      .summary-article {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:not(:last-child) {
+          margin-bottom: 2.4rem;
+        }
+
+        &-left {
+          display: flex;
+          align-items: center;
+          gap: 1.6rem;
+          font-weight: 700;
+          line-height: 2.5rem;
+
+          h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+          }
+
+          p {
+            font-size: 1.4rem;
+            opacity: 0.5;
+          }
+
+          img {
+            width: 6.4rem;
+            height: 6.4rem;
+            border-radius: 8px;
+          }
+        }
+
+        &-right {
+          font-size: 1.5rem;
+          font-weight: 700;
+          line-height: 2.5rem;
+          opacity: 0.5;
+        }
+      }
+
+      .summary-infos {
+        margin-top: 3.2rem;
+
+        &-article {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+
+          h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 2.5rem;
+            text-transform: uppercase;
+            opacity: 0.5;
+          }
+
+          p {
+            font-size: 1.8rem;
+            font-weight: 700;
+          }
+        }
+      }
+      .btn {
+        margin: auto;
+        margin-top: 3.2rem;
+      }
+    }
   }
 }
