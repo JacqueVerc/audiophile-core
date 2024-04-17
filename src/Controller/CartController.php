@@ -27,15 +27,18 @@ class CartController extends AbstractController
         $cartLines = $cartLineRepository->findBy(['cart' => $cart]);
 
         $sum = 0;
+        $quantity = 0;
 
         foreach ($cartLines as $cartLine) {
             $sum += ( $cartLine->getQuantity() * $cartLine->getProduct()->getPrice() );
+            $quantity += $cartLine->getQuantity();
         }
-
         return $this->render('cart/index.html.twig', [
             'cartLines' => $cartLines,
-            'sum' => $sum
+            'sum' => $sum,
+            'quantity' => $quantity
         ]);
+
     }
 
     /**

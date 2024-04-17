@@ -30,6 +30,23 @@
     }
   }
 
+  &-cart {
+    position: relative;
+
+    &-content {
+      p {
+        position: absolute;
+        background-color: #fff;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        text-align: center;
+        top: -6px;
+        right: -8px;
+      }
+    }
+  }
+
   &-nav {
     display: none;
 
@@ -53,6 +70,7 @@
     display: flex;
     gap: 2rem;
   }
+
   .modal-cart {
     display: none;
 
