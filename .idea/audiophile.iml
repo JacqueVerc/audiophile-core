@@ -67,6 +67,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/debug-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/web-profiler-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

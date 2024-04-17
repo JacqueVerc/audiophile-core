@@ -7,40 +7,28 @@
       <section class="checkout-summary container">
         <h1>Summary</h1>
         <div class="summary-content">
+          {% for cartLine in cartLines %}
           <div class="summary-article">
             <div class="summary-article-left">
               <div class="summary-article-img">
                 <img src={{asset('/images/image-xx99-mark-two-headphones.jpg')}} alt="" />
               </div>
               <div class="summary-article-text">
-                <h3>XX99MKII</h3>
-                <p>$ 599</p>
+                <h3>{{ cartLine.product.name | upper }}</h3>
+                <p>$ {{ cartLine.product.price }}</p>
               </div>
             </div>
             <div class="summary-article-right">
-              <p>x2</p>
+              <p>x{{ cartLine.quantity }}</p>
             </div>
           </div>
-          <div class="summary-article">
-            <div class="summary-article-left">
-              <div class="summary-article-img">
-                <img src={{asset('/images/image-xx99-mark-two-headphones.jpg')}} alt="" />
-              </div>
-              <div class="summary-article-text">
-                <h3>XX99MKII</h3>
-                <p>$ 599</p>
-              </div>
-            </div>
-            <div class="summary-article-right">
-              <p>x2</p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
 
         <div class="summary-infos">
           <div class="summary-infos-article">
             <h2>total</h2>
-            <p>$ 1198</p>
+            <p>$ {{ sum }}</p>
           </div>
           <div class="summary-infos-article">
             <h2>Shipping</h2>
