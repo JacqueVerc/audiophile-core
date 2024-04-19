@@ -5,35 +5,43 @@
 {% block body %}
     <main class="checkout">
       <section class="checkout-summary container">
-        <div clas="checkout-summary-header">
-          <h1>Summary</h1>
-          {# <a href="{{ path('app_clear_cart') }}">
-            Remove All
-          </a> #}
-        </div>
-        <div class="summary-content">
-          {% include('cart/cartPartial.html.twig') %}
-        </div>
+        {% if quantity is not same as(0) %}
+          <div clas="checkout-summary-header">
+            <h1>Summary</h1>
+            {# <a href="{{ path('app_clear_cart') }}">
+              Remove All
+            </a> #}
+          </div>
+          <div class="summary-content">
+            {% include('cart/cartPartial.html.twig') %}
+          </div>
 
-        <div class="summary-infos">
-          <div class="summary-infos-article">
-            <h2>total</h2>
-            <p>$ {{ sum }}</p>
-          {# </div>
-          <div class="summary-infos-article">
-            <h2>Shipping</h2>
-            <p>$ 50</p>
+          <div class="summary-infos">
+            <div class="summary-infos-article">
+              <h2>total</h2>
+              <p>$ {{ sum }}</p>
+            {# </div>
+            <div class="summary-infos-article">
+              <h2>Shipping</h2>
+              <p>$ 50</p>
+            </div>
+            <div class="summary-infos-article">
+              <h2>Estimated Tax</h2>
+              <p>$ 90</p>
+            </div>
+            <div class="summary-infos-article">
+              <h2>VAT (included)</h2>
+              <p>$ 200</p>
+            </div> #}
           </div>
-          <div class="summary-infos-article">
-            <h2>Estimated Tax</h2>
-            <p>$ 90</p>
-          </div>
-          <div class="summary-infos-article">
-            <h2>VAT (included)</h2>
-            <p>$ 200</p>
-          </div> #}
-        </div>
-        <button class="btn btn-orange">Continue & Pay</button>
+          <button class="btn btn-orange">Continue & Pay</button>
+
+          {% else %}
+            <div class="empty-cart">
+              <h1>Your cart is empty</h1>
+              <a href="/" class="btn btn-orange">Continue Shopping</a>
+            </div>
+        {% endif %}
       </section>
     </main>
 {% endblock %}

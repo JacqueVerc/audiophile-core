@@ -1,10 +1,12 @@
 .checkout {
   background-color: #fafafa;
+  height: 100vh;
   padding: 3.2rem 0;
 
   &-summary {
     background-color: #fff;
     padding: 3.2rem 2.4rem;
+    border-radius: 8px;
 
     h1 {
       font-size: 18px;
@@ -82,5 +84,15 @@
   .btn {
     margin: auto;
     margin-top: 3.2rem;
+  }
+
+  & .empty-cart {
+    height: 50%;
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-align: center;
+    }
   }
 }
