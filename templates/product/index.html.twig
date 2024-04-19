@@ -11,9 +11,9 @@
 
         <div class="detail-product">
           <picture class="detail-product-img">
-            <source media="(min-width: 1024px)" />
-            <source media="(min-width: 768px)" />
-            <img alt="" />
+            <source srcset="{{asset('/images/products/product-' ~ product.slug ~ '/desktop/image-product-' ~ product.slug ~ '.jpg')}}" media="(min-width: 1024px)" />
+            <source srcset="{{asset('/images/products/product-' ~ product.slug ~ '/tablet/image-product-' ~ product.slug ~ '.jpg')}}" media="(min-width: 768px)" />
+            <img src="{{asset('/images/products/product-' ~ product.slug ~ '/mobile/image-product-' ~ product.slug ~ '.jpg')}}" alt={{product.name}} />
           </picture>
           <div class="detail-product-content">
             <h4 class="new-product">NEW PRODUCT</h4>
@@ -24,15 +24,33 @@
             <p class="detail-product-content-price">$ {{ product.price }}</p>
 
             <div class="add-to-cart">
-              <div class="add-to-cart-number">
+              {# <div class="add-to-cart-number">
                 <button>-</button>
                 <p>0</p>
                 <button onclick="">+</button>
-              </div>
-              <button class="btn btn-orange"><a href="/cart/add/{{ product.id }}/1">Add to cart</a></button>
+              </div> #}
+              <a class="btn btn-orange" href="/cart/add/{{ product.id }}/1">Add to cart</a>
             </div>
           </div>
         </div>
+        <section class="detail-images">
+          <picture class="detail-images-picture">
+            <source srcSet="{{asset('/images/products/product-' ~ product.slug ~ '/desktop/image-gallery-1-' ~ product.slug ~ '.jpg')}}" media="(min-width: 1024px)" />
+            <source srcSet="{{asset('/images/products/product-' ~ product.slug ~ '/tablet/image-gallery-1-' ~ product.slug ~ '.jpg')}}" media="(min-width: 768px)" />
+            <img src="{{asset('/images/products/product-' ~ product.slug ~ '/mobile/image-gallery-1-' ~ product.slug ~ '.jpg')}}" alt={{ product.name }} />
+          </picture>
+          <picture class="detail-images-picture">
+            <source srcSet="{{asset('/images/products/product-' ~ product.slug ~ '/desktop/image-gallery-2-' ~ product.slug ~ '.jpg')}}" media="(min-width: 1024px)" />
+            <source srcSet="{{asset('/images/products/product-' ~ product.slug ~ '/tablet/image-gallery-2-' ~ product.slug ~ '.jpg')}}" media="(min-width: 768px)" />
+            <img src="{{asset('/images/products/product-' ~ product.slug ~ '/mobile/image-gallery-2-' ~ product.slug ~ '.jpg')}}" alt={{ product.name }} />
+          </picture>
+          <picture class="detail-images-picture">
+            <source srcSet="{{asset('/images/products/product-' ~ product.slug ~ '/desktop/image-gallery-3-' ~ product.slug ~ '.jpg')}}" media="(min-width: 1024px)" />
+            <source srcSet="{{asset('/images/products/product-' ~ product.slug ~ '/tablet/image-gallery-3-' ~ product.slug ~ '.jpg')}}" media="(min-width: 768px)" />
+            <img src="{{asset('/images/products/product-' ~ product.slug ~ '/mobile/image-gallery-3-' ~ product.slug ~ '.jpg')}}" alt={{ product.name }} />
+          </picture>
+        </section>
+      </section>
       </section>
       
       {% include('layouts/link.html.twig') %}

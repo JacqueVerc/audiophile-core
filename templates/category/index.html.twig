@@ -16,16 +16,16 @@
                     <div class="category-article">
                         {% endif %}
                         <picture class="category-article-img">
-                            <source media="(min-width: 1024px)"/>
-                            <source media="(min-width: 768px)"/>
-                            <img alt=""/>
+                            <source srcset="{{asset('/images/products/product-' ~ product.slug ~ '/desktop/image-category-page-preview-' ~ product.slug ~ '.jpg')}}" media="(min-width: 1024px)"/>
+                            <source srcset="{{asset('/images/products/product-' ~ product.slug ~ '/tablet/image-category-page-preview-' ~ product.slug ~ '.jpg')}}" media="(min-width: 500px)"/>
+                            <img src="{{asset('/images/products/product-' ~ product.slug ~ '/mobile/image-category-page-preview-' ~ product.slug ~ '.jpg')}}"  alt={{product.name}} />
                         </picture>
                         <div class="category-article-content">
                             <h2 class="mid-title">{{ product.name|upper }}</h2>
                             <p class="text">
                                 {{ product.description }}
                             </p>
-                            <button class="btn btn-orange"><a href="/category/{{ category.name }}/{{ product.slug }}">SEE PRODUCT</a></button>
+                            <a class="btn btn-orange" href="/category/{{ category.name }}/{{ product.slug }}">SEE PRODUCT</a>
                         </div>
                     </div>
                     {% endfor %}
