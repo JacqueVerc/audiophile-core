@@ -5,7 +5,12 @@
 {% block body %}
     <main class="checkout">
       <section class="checkout-summary container">
-        <h1>Summary</h1>
+        <div clas="checkout-summary-header">
+          <h1>Summary</h1>
+          {# <a href="{{ path('app_clear_cart') }}">
+            Remove All
+          </a> #}
+        </div>
         <div class="summary-content">
           {% include('cart/cartPartial.html.twig') %}
         </div>

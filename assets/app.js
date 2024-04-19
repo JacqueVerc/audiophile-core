@@ -44,18 +44,18 @@ if (modal) {
 }
 
 // Modal pour le panier
-const modalCart = document.querySelector(".header-cart");
-const showCart = document.querySelector(".modal-cart");
-const parentCart = document.getElementById("cartModal");
+// const modalCart = document.querySelector(".header-cart");
+// const showCart = document.querySelector(".modal-cart");
+// const parentCart = document.getElementById("cartModal");
 
-modalCart.addEventListener("click", () => {
-  modalCart.classList.toggle("show");
-  showCart.classList.toggle("show");
-});
+// modalCart.addEventListener("click", () => {
+//   modalCart.classList.toggle("show");
+//   showCart.classList.toggle("show");
+// });
 
-parentCart.addEventListener("click", () => {
-  if (modalCart.classList.contains("show")) {
-    modalCart.classList.remove("show");
-    showCart.classList.remove("show");
-  }
-});
+// parentCart.addEventListener("click", () => {
+//   if (modalCart.classList.contains("show")) {
+//     modalCart.classList.remove("show");
+//     showCart.classList.remove("show");
+//   }
+// });
