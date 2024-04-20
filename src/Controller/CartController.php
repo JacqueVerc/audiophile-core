@@ -41,19 +41,19 @@ class CartController extends AbstractController
         ]);
     }
 
-    #[Route('/cart/add/{id}', name: 'app_cart_add')]
-    public function addCartLine($id, CartLineRepository $cartLineRepository, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
-    {
-        $cartLine = $cartLineRepository->find($id);
-
-        if ($cartLine) {
-            $cartLine->setQuantity($cartLine->getQuantity() + 1);
-        }
-
-        $entityManager->flush();
-
-        return $this->redirectToRoute('app_cart');
-    }
+//    #[Route('/cart/add/{id}', name: 'app_cart_add')]
+//    public function addCartLine($id, CartLineRepository $cartLineRepository, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
+//    {
+//        $cartLine = $cartLineRepository->find($id);
+//
+//        if ($cartLine) {
+//            $cartLine->setQuantity($cartLine->getQuantity() + 1);
+//        }
+//
+//        $entityManager->flush();
+//
+//        return $this->redirectToRoute('app_cart');
+//    }
 
 
     #[Route('/cart/remove/{id}', name: 'app_cart_remove')]
@@ -79,8 +79,8 @@ class CartController extends AbstractController
      * @throws ORMException
      * @throws \Doctrine\DBAL\Driver\Exception
      */
-    #[Route('/cart/add/{product}/{quantity}', name: 'app_category_category_products_add_number')]
-    public function addProductToCart(int $product, int $quantity, CartRepository $cartRepository, CartLineRepository $cartLineRepository, CartProcessor $cartProcessor, UserRepository $userRepository, EntityManagerInterface $manager): Response
+    #[Route('/cart/add/{id}', name: 'app_cart_add')]
+    public function addProductToCart(int $id, CartRepository $cartRepository, CartLineRepository $cartLineRepository, CartProcessor $cartProcessor, UserRepository $userRepository, EntityManagerInterface $manager): Response
     {
         $cart = $cartRepository->findOneBy(['user' => $this->getUser()]);
 
@@ -90,9 +90,8 @@ class CartController extends AbstractController
             $manager->persist($cart);
             $manager->flush();
         }
-
-        $cartLine = $cartLineRepository->findCartLineByProduct($product);
-        $cartProcessor->addToCart($cart, $cartLine, $product, $quantity);
+        $cartLine = $cartLineRepository->findCartLineByProductAndCart($id, $this->getUser()->getUserIdentifier());
+        $cartProcessor->addToCart($cart, $cartLine, $id, 1);
 
         return $this->redirectToRoute('app_cart');
     }
