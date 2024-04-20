@@ -37,33 +37,6 @@
       & .btn-orange {
         margin: 0;
       }
-
-      &-number {
-        display: flex;
-        align-items: center;
-        background-color: #f1f1f1;
-        font-size: 1.3rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-
-        button {
-          color: #000;
-          padding: 1.2rem 2.55rem;
-          opacity: 0.25;
-          font-size: 1.8rem;
-
-          &:hover {
-            background-color: #c6c6c6;
-            color: #d87d4a;
-            opacity: 1;
-          }
-        }
-
-        p {
-          margin: 0;
-          padding: 1.2rem 1rem;
-        }
-      }
     }
   }
 

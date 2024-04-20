@@ -1,3 +1,5 @@
+@use "../base/mixins" as *;
+
 .checkout {
   background-color: #fafafa;
   height: 100vh;
@@ -21,6 +23,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    @include mq(mobile) {
+      flex-wrap: nowrap;
+      gap: 0;
+    }
 
     &:not(:last-child) {
       margin-bottom: 2.4rem;
@@ -51,10 +60,43 @@
     }
 
     &-right {
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 2.5rem;
-      opacity: 0.5;
+      & .update-cart {
+        & .btn-orange {
+          margin: 0;
+        }
+  
+        &-number {
+          display: flex;
+          align-items: center;
+          background-color: #f1f1f1;
+          font-size: 1.3rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+  
+          a {
+            margin-top: 0;
+            color: #000;
+            width: 5rem;
+            align-self: center;
+            opacity: 0.25;
+            font-size: 1.8rem;
+            transition: 0.3s ease;
+            
+            &:hover {
+              background-color: #ebebeb;
+              color: #d87d4a;
+              opacity: 1;
+              transition: 0.3s ease;
+            }
+          }
+  
+          p {
+            margin: 0;
+            padding: 1.2rem 1.6rem;
+            width: 4rem;
+          }
+        }
+      }
     }
   }
 

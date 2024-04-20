@@ -1,5 +1,5 @@
 @use "./mixins" as *;
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 :root {
   font-size: 10px;
@@ -98,23 +98,42 @@
     background-color: #d87d4a;
     margin: auto;
     color: #fff;
+    transition: 0.3s ease;
 
     @include mq(laptop) {
       margin: 0;
     }
-  }
 
+    &:hover {
+      background-color: #fbaf85;
+      transition: 0.3s ease;
+    }
+  }
+  
   &-black {
     background-color: #000000;
+    transition: 0.3s ease;
     margin: auto;
-
+    
     @include mq(laptop) {
       margin: 0;
+    }
+    
+    &:hover {
+      transition: 0.3s ease;
+      background: #4C4C4C;
     }
   }
 
   &-transparent {
-    border: 1px solid #000000;
+    border: 1px solid #000;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
+      transition: 0.3s ease;
+    }
   }
 }
 
