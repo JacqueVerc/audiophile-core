@@ -43,19 +43,12 @@ class Product
     /**
      * @var Collection<int, ProductDescription>
      */
-    #[ORM\OneToMany(targetEntity: ProductDescription::class, mappedBy: 'product', orphanRemoval: true)]
-    private Collection $productDescription;
-
-    /**
-     * @var Collection<int, ProductDescription>
-     */
     #[ORM\ManyToMany(targetEntity: ProductDescription::class, mappedBy: 'products')]
     private Collection $productDescriptions;
 
     public function __construct()
     {
         $this->media = new ArrayCollection();
-        $this->productDescription = new ArrayCollection();
         $this->productDescriptions = new ArrayCollection();
     }
 
@@ -162,36 +155,6 @@ class Product
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ProductDescription>
-     */
-    public function getProductDescription(): Collection
-    {
-        return $this->productDescription;
-    }
-
-    public function addProductDescription(ProductDescription $productDescription): static
-    {
-        if (!$this->productDescription->contains($productDescription)) {
-            $this->productDescription->add($productDescription);
-            $productDescription->setProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProductDescription(ProductDescription $productDescription): static
-    {
-        if ($this->productDescription->removeElement($productDescription)) {
-            // set the owning side to null (unless already changed)
-            if ($productDescription->getProduct() === $this) {
-                $productDescription->setProduct(null);
-            }
-        }
 
         return $this;
     }
