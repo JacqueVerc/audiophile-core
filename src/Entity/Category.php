@@ -31,7 +31,7 @@ class Category
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Description = null;
+    private ?string $description = null;
 
     public function __construct()
     {
@@ -118,12 +118,12 @@ class Category
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
     public function setDescription(string $Description): static
     {
-        $this->Description = $Description;
+        $this->description = $Description;
 
         return $this;
     }

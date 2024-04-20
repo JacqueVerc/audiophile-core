@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
 use App\Entity\CartLine;
 use App\Processor\CartProcessor;
 use App\Repository\CartLineRepository;
@@ -47,9 +48,17 @@ class CartController extends AbstractController
      * @throws \Doctrine\DBAL\Driver\Exception
      */
     #[Route('/cart/add/{product}/{quantity}', name: 'app_category_category_products_add_number')]
-    public function addProductToCart(int $product, int $quantity, CartRepository $cartRepository, CartLineRepository $cartLineRepository, CartProcessor $cartProcessor): Response
+    public function addProductToCart(int $product, int $quantity, CartRepository $cartRepository, CartLineRepository $cartLineRepository, CartProcessor $cartProcessor, UserRepository $userRepository, EntityManagerInterface $manager): Response
     {
             $cart = $cartRepository->findOneBy(['user' => $this->getUser()]);
+
+            if (!$cart){
+                $cart = new Cart();
+                $cart->setUser($userRepository->findOneBy(['id' => $this->getUser()]));
+                $manager->persist($cart);
+                $manager->flush();
+            }
+
             $cartLine = $cartLineRepository->findCartLineByProduct($product);
             $cartProcessor->addToCart($cart, $cartLine, $product, $quantity);
 
