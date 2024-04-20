@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\CartLine;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @extends ServiceEntityRepository<CartLine>
@@ -24,12 +25,16 @@ class CartLineRepository extends ServiceEntityRepository
         /**
          * @return CartLine[] Returns an array of CartLine objects
          */
-        public function findCartLineByProduct(int $product): ?CartLine
+        public function findCartLineByProductAndCart(int $product, string $user): ?CartLine
         {
             return $this->createQueryBuilder('cali')
                 ->innerJoin('cali.product', 'prod')
+                ->innerJoin('cali.cart', 'cart')
+                ->innerJoin('cart.user', 'user')
                 ->andWhere('prod.id = :product')
+                ->andWhere('user.email = :user')
                 ->setParameter('product', $product)
+                ->setParameter('user', $user)
                 ->getQuery()
                 ->getOneOrNullResult()
             ;

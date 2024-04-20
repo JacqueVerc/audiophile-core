@@ -13,8 +13,8 @@
     </div>
     <div class="summary-article-right">
       <p>x{{ cartLine.quantity }}</p>
-      <a href="{{ path('app_cart_remove', {'id': cartLine.id}) }}" class="btn btn-danger">Remove</a>
-      <a href="{{ path('app_cart_add', {'id': cartLine.id}) }}" class="btn btn-danger">Add</a>
+      <a href="{{ path('app_cart_remove', {'id': cartLine.product.id}) }}" class="btn btn-danger">Remove</a>
+      <a href="{{ path('app_cart_add', {'id': cartLine.product.id}) }}" class="btn btn-danger">Add</a>
     </div>
   </div>
 {% endfor %}
