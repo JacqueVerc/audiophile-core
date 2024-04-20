@@ -54,10 +54,16 @@
       line-height: 2.5rem;
       font-weight: 700;
       letter-spacing: 2px;
+      transition: 0.3s ease;
 
       @include mq(tablet) {
         flex-direction: row;
         gap: 3.4rem;
+      }
+
+      & li:hover {
+        color: #d87d4a;
+        transition: 0.3s ease;
       }
     }
   }

@@ -62,6 +62,12 @@
         letter-spacing: 2px;
         font-weight: 700;
         color: #ffffff;
+        transition: 0.3s ease;
+
+        & li:hover {
+          color: #D87D4A;
+          transition: 0.3s ease;
+        }
       }
     }
   }

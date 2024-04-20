@@ -24,15 +24,16 @@
             <p class="detail-product-content-price">$ {{ product.price }}</p>
 
             <div class="add-to-cart">
-              {# <div class="add-to-cart-number">
-                <button>-</button>
-                <p>0</p>
-                <button onclick="">+</button>
-              </div> #}
               <a class="btn btn-orange" href="/cart/add/{{ product.id }}">Add to cart</a>
             </div>
           </div>
         </div>
+        <section class="features">
+        <div>
+          <p>{{ product.feature1 }}</p>
+          <p>{{ product.feature2 }}</p>
+        </div>
+        </section>
         <section class="detail-images">
           <picture class="detail-images-picture">
             <source srcSet="{{asset('/images/products/product-' ~ product.slug ~ '/desktop/image-gallery-1-' ~ product.slug ~ '.jpg')}}" media="(min-width: 1024px)" />

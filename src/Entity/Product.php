@@ -46,6 +46,12 @@ class Product
     #[ORM\ManyToMany(targetEntity: ProductDescription::class, mappedBy: 'products')]
     private Collection $productDescriptions;
 
+    #[ORM\Column(length: 255)]
+    private ?string $feature_1 = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $feature_2 = null;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -165,5 +171,29 @@ class Product
     public function getProductDescriptions(): Collection
     {
         return $this->productDescriptions;
+    }
+
+    public function getFeature1(): ?string
+    {
+        return $this->feature_1;
+    }
+
+    public function setFeature1(string $feature_1): static
+    {
+        $this->feature_1 = $feature_1;
+
+        return $this;
+    }
+
+    public function getFeature2(): ?string
+    {
+        return $this->feature_2;
+    }
+
+    public function setFeature2(string $feature_2): static
+    {
+        $this->feature_2 = $feature_2;
+
+        return $this;
     }
 }
