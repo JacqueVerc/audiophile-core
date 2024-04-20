@@ -7,6 +7,7 @@ use App\Entity\CartLine;
 use App\Entity\Category;
 use App\Entity\Media;
 use App\Entity\Product;
+use App\Entity\ProductDescription;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -152,6 +153,11 @@ class AppFixtures extends Fixture
                 $media->setType('preview');
                 $media->setSize($item);
                 $manager->persist($media);
+
+                $accessory = new ProductDescription();
+                $accessory->setName('test');
+                $accessory->setQuantity(1);
+                $accessory->addProduct($product);
 
                 $media2 = new Media();
                 $media2->setLien('/images/products/product-' . $product->getSlug() . '/' . $item . '/image-gallery-1-' . $product->getSlug() . '.jpg');
