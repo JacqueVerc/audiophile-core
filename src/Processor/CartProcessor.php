@@ -24,7 +24,7 @@ class CartProcessor
      * @throws Exception
      * @throws ORMException
      */
-    public function addToCart(Cart $cart, CartLine $cartLine, int $product, int $quantity): void
+    public function addToCart(Cart $cart, ?CartLine $cartLine, int $product, int $quantity): void
     {
         try {
             $this->manager->beginTransaction();
