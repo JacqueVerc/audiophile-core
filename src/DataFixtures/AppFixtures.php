@@ -97,12 +97,12 @@ class AppFixtures extends Fixture
 
         $manager->persist($categorie3);
 
-        $media = new Media();
-        $media->setLien("lien fictif");
-        $media->setAlt();
-        $media->setProduct($produit);
-
-        $manager->persist($media);
+//        $media = new Media();
+//        $media->setLien("lien fictif");
+//        $media->setAlt();
+//        $media->setProduct($produit);
+//
+//        $manager->persist($media);
 
         $user = new User();
         $user->setEmail("lala@lala.lala");
@@ -126,6 +126,54 @@ class AppFixtures extends Fixture
         $manager->persist($cartLine);
 
         $manager->persist($cart);
+
+
+        $products = [$produit, $produit2, $produit3, $produit4, $produit5, $produit6];
+        $array = ['desktop', 'mobile', 'tablet'];
+
+        foreach ($products as $product) {
+            foreach ($array as $item) {
+                $media = new Media();
+                $media->setLien('/images/products/product-' . $product->getSlug() . '/' . $item . '/image-category-page-preview-' . $product->getSlug() . '.jpg');
+                $media->setAlt('prévisualisation du produit ' . $product->getName());
+                $media->setProduct($product);
+                $media->setType('preview');
+                $media->setSize($item);
+                $manager->persist($media);
+
+                $media2 = new Media();
+                $media2->setLien('/images/products/product-' . $product->getSlug() . '/' . $item . '/image-gallery-1-' . $product->getSlug() . '.jpg');
+                $media2->setAlt('image de gallerie du produit ' . $product->getName());
+                $media2->setProduct($product);
+                $media2->setType('gallery1');
+                $media2->setSize($item);
+                $manager->persist($media2);
+
+                $media3 = new Media();
+                $media3->setLien('/images/products/product-' . $product->getSlug() . '/' . $item . '/image-gallery-2-' . $product->getSlug() . '.jpg');
+                $media3->setAlt('image de gallerie du produit ' . $product->getName());
+                $media3->setProduct($product);
+                $media3->setType('gallery2');
+                $media3->setSize($item);
+                $manager->persist($media3);
+
+                $media4 = new Media();
+                $media4->setLien('/images/products/product-' . $product->getSlug() . '/' . $item . '/image-gallery-3-' . $product->getSlug() . '.jpg');
+                $media4->setAlt('image de gallerie du produit ' . $product->getName());
+                $media4->setProduct($product);
+                $media4->setType('gallery3');
+                $media4->setSize($item);
+                $manager->persist($media4);
+
+                $media5 = new Media();
+                $media5->setLien('/images/products/product-' . $product->getSlug() . '/' . $item . '/image-product-' . $product->getSlug() . '.jpg');
+                $media5->setAlt('image du produit ' . $product->getName());
+                $media5->setProduct($product);
+                $media5->setType('product');
+                $media5->setSize($item);
+                $manager->persist($media5);
+            }
+        }
 
         $manager->flush();
     }

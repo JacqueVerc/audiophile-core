@@ -25,6 +25,12 @@ class Media
     #[ORM\ManyToOne(inversedBy: 'media')]
     private ?Product $product = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $type = null;
+
+    #[ORM\Column(length: 25)]
+    private ?string $size = null;
+
     public function getId(): int
     {
         return $this->id;
@@ -81,6 +87,30 @@ class Media
     public function setProduct(?Product $product): static
     {
         $this->product = $product;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): static
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(string $size): static
+    {
+        $this->size = $size;
 
         return $this;
     }
