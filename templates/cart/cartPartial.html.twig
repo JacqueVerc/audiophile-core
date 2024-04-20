@@ -2,7 +2,9 @@
   <div class="summary-article">
     <div class="summary-article-left">
       <div class="summary-article-img">
-        <img src={{asset('/images/image-xx99-mark-two-headphones.jpg')}} alt="" />
+        <a href="/{{ cartLine.product.slug }}">
+          <img src="{{asset('/images/products/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />
+        </a>
       </div>
       <div class="summary-article-text">
         <h3>{{ cartLine.product.name | upper }}</h3>
@@ -11,6 +13,8 @@
     </div>
     <div class="summary-article-right">
       <p>x{{ cartLine.quantity }}</p>
+      <a href="{{ path('app_cart_remove', {'id': cartLine.id}) }}" class="btn btn-danger">Remove</a>
+      <a href="{{ path('app_cart_add', {'id': cartLine.id}) }}" class="btn btn-danger">Add</a>
     </div>
   </div>
 {% endfor %}
