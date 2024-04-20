@@ -30,7 +30,6 @@ class CategoryController extends AbstractController
     public function getProducts(string $products, ProductRepository $productRepository): Response
     {
         $product = $productRepository->findOneBy(['slug' => $products]);
-
         return $this->render('product/index.html.twig', [
             'product' => $product,
         ]);
