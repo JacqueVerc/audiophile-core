@@ -1,13 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfileController!{% endblock %}
+{% block title %}Hello {{ app.user.firstName }}{% endblock %}
 
 {% block body %}
-    <main>
-        <section class="container">
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+    <main class="profile">
+        <section class="profile-container container">
+            <h1 class="profile-title">Profile</h1>
+            <div class="profile-text">
+                <div class="profile-user login-form">
+                    <div class="login-form-input">
+                        <label for="inputName">Name</label>
+                        <input type="name" value="{{ app.user.name }}" name="name" id="inputName" class="form-control" autocomplete="name" disabled>
+                    </div>
+                    <div class="login-form-input">
+                        <label for="inputFirstName">Firstname</label>
+                        <input type="firstName" value="{{ app.user.firstName }}" name="firstName" id="inputFirstName" class="form-control" autocomplete="firstName" disabled>
+                    </div>
+                    <div class="login-form-input">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" value="{{ app.user.userIdentifier }}" name="email" id="inputEmail" class="form-control" autocomplete="email" disabled>
+                    </div>
+                </div>
             </div>
+            <a class="btn btn-orange" href="{{ path('app_logout') }}">Logout</a>
         </section>
     </main>
 {% endblock %}

@@ -25,6 +25,8 @@ class AppFixtures extends Fixture
         $produit->setDescription("Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.");
         $produit->setAvailable(true);
         $produit->setPrice(599);
+        $produit->setFeature1('Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics designed for full day wearing, these revolutionary earphones have been finely crafted to provide you with the perfect fit, delivering complete comfort.');
+        $produit->setFeature2('The YX1 Wireless Earphones features customizable controls for volume, music, calls, and voice assistants built into both earbuds. The new 7-hour battery life can be extended up to 28 hours with the charging case, giving you uninterrupted play time.');
 
         $manager->persist($produit);
 
@@ -34,6 +36,8 @@ class AppFixtures extends Fixture
         $produit2->setDescription("Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.");
         $produit2->setAvailable(true);
         $produit2->setPrice(899);
+        $produit2->setFeature1('These headphones have been created from durable, high-quality materials tough enough to take anywhere. Its compact folding design fuses comfort and minimalist style making it perfect for travel. Flawless transmission is assured by the wireless tech.');
+        $produit2->setFeature2('More than a simple pair of headphones, this headset features a pair of built-in microphones for clear, hands-free calling when paired with a compatible smartphone. Controlling music and calls is also intuitive thanks to easy-access touch buttons.');
 
         $manager->persist($produit2);
 
@@ -43,6 +47,8 @@ class AppFixtures extends Fixture
         $produit3->setDescription("As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.");
         $produit3->setAvailable(true);
         $produit3->setPrice(1750);
+        $produit3->setFeature1('As the headphones all others are measured against, the XX99 Mark I demonstrates over five decades of audio expertise, redefining the critical listening experience. This pair of closed-back headphones are made of industrial, aerospace-grade materials.');
+        $produit3->setFeature2('From the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound. Its closed-back design delivers up to 27 dB of passive noise cancellation.');
 
         $manager->persist($produit3);
 
@@ -52,6 +58,8 @@ class AppFixtures extends Fixture
         $produit4->setDescription('The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.');
         $produit4->setAvailable(true);
         $produit4->setPrice(2999);
+        $produit4->setFeature1('Featuring a genuine leather head strap and premium earcups, these headphones deliver superior comfort for those who like to enjoy endless listening. It includes intuitive controls designed for any situation.');
+        $produit4->setFeature2('The advanced Active Noise Cancellation with built-in equalizer allow you to experience your audio world on your terms. It lets you enjoy your audio in peace, but quickly interact with your surroundings when you need to. Combined with Bluetooth 5.0.');
 
         $manager->persist($produit4);
 
@@ -61,6 +69,8 @@ class AppFixtures extends Fixture
         $produit5->setDescription("Stream high quality sound wirelessly with minimal to no loss. The ZX7 speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.");
         $produit5->setAvailable(true);
         $produit5->setPrice(3500);
+        $produit5->setFeature1('Reap the advantages of a flat diaphragm tweeter cone. This provides a fast response rate and excellent high frequencies that lower tiered bookshelf speakers cannot provide. The woofers are made from aluminum that produces a unique and clear sound.');
+        $produit5->setFeature2('The ZX7 speaker is the perfect blend of stylish design and high performance. It houses an encased MDF wooden enclosure which minimises acoustic resonance. Dual connectivity allows pairing through bluetooth or traditional optical and RCA input.');
 
         $manager->persist($produit5);
 
@@ -70,6 +80,8 @@ class AppFixtures extends Fixture
         $produit6->setDescription("Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.");
         $produit6->setAvailable(true);
         $produit6->setPrice(4500);
+        $produit6->setFeature1('Connect via Bluetooth or nearly any wired source. This speaker features optical, digital coaxial, USB Type-B, stereo RCA, and stereo XLR inputs, allowing you to have up to five wired source devices connected for easy switching.');
+        $produit6->setFeature2('Discover clear, more natural sounding highs than the competition with ZX9’s signature planar diaphragm tweeter. Equally important is its powerful room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy equal sound quality.');
 
         $manager->persist($produit6);
 

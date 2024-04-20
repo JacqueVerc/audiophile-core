@@ -2,7 +2,7 @@
   <div class="summary-article">
     <div class="summary-article-left">
       <div class="summary-article-img">
-        <a href="/{{ cartLine.product.slug }}">
+        <a href="/category/{{ cartLine.product.category.name }}/{{ cartLine.product.slug }}">
           <img src="{{asset('/images/products/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />
         </a>
       </div>

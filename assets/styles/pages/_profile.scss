@@ -1,0 +1,32 @@
+.profile {
+  &-container {
+    & .btn {
+      margin: auto;
+      margin-top: 4rem;
+      margin-bottom: 14rem;
+    }
+
+    & input {
+      background-color: #fafafa;
+      color: grey;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.25px;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    letter-spacing: 1.143px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 14rem;
+  }
+}
