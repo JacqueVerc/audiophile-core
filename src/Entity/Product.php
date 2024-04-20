@@ -46,49 +46,17 @@ class Product
     #[ORM\OneToMany(targetEntity: ProductDescription::class, mappedBy: 'product', orphanRemoval: true)]
     private Collection $productDescription;
 
-    #[ORM\Column(length: 100)]
-    private ?string $category_name = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $feature_1 = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $feature_2 = null;
-
-    #[ORM\Column(length: 75, nullable: true)]
-    private ?string $box_product = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $box_product_number = null;
-
-    #[ORM\Column(length: 75, nullable: true)]
-    private ?string $replace_product = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $replace_product_number = null;
-
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $manual_product = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $manual_product_number = null;
-
-    #[ORM\Column(length: 75, nullable: true)]
-    private ?string $element_product = null;
-
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $travel_product = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $element_product_number = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $travel_product_number = null;
+    /**
+     * @var Collection<int, ProductDescription>
+     */
+    #[ORM\ManyToMany(targetEntity: ProductDescription::class, mappedBy: 'products')]
+    private Collection $productDescriptions;
 
     public function __construct()
     {
         $this->media = new ArrayCollection();
         $this->productDescription = new ArrayCollection();
+        $this->productDescriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -228,159 +196,11 @@ class Product
         return $this;
     }
 
-    public function getCategoryName(): ?string
+    /**
+     * @return Collection<int, ProductDescription>
+     */
+    public function getProductDescriptions(): Collection
     {
-        return $this->category_name;
-    }
-
-    public function setCategoryName(string $category_name): static
-    {
-        $this->category_name = $category_name;
-
-        return $this;
-    }
-
-    public function getFeature1(): ?string
-    {
-        return $this->feature_1;
-    }
-
-    public function setFeature1(?string $feature_1): static
-    {
-        $this->feature_1 = $feature_1;
-
-        return $this;
-    }
-
-    public function getFeature2(): ?string
-    {
-        return $this->feature_2;
-    }
-
-    public function setFeature2(?string $feature_2): static
-    {
-        $this->feature_2 = $feature_2;
-
-        return $this;
-    }
-
-    public function getBoxProduct(): ?string
-    {
-        return $this->box_product;
-    }
-
-    public function setBoxProduct(?string $box_product): static
-    {
-        $this->box_product = $box_product;
-
-        return $this;
-    }
-
-    public function getBoxProductNumber(): ?int
-    {
-        return $this->box_product_number;
-    }
-
-    public function setBoxProductNumber(?int $box_product_number): static
-    {
-        $this->box_product_number = $box_product_number;
-
-        return $this;
-    }
-
-    public function getReplaceProduct(): ?string
-    {
-        return $this->replace_product;
-    }
-
-    public function setReplaceProduct(?string $replace_product): static
-    {
-        $this->replace_product = $replace_product;
-
-        return $this;
-    }
-
-    public function getReplaceProductNumber(): ?int
-    {
-        return $this->replace_product_number;
-    }
-
-    public function setReplaceProductNumber(?int $replace_product_number): static
-    {
-        $this->replace_product_number = $replace_product_number;
-
-        return $this;
-    }
-
-    public function getManualProduct(): ?string
-    {
-        return $this->manual_product;
-    }
-
-    public function setManualProduct(?string $manual_product): static
-    {
-        $this->manual_product = $manual_product;
-
-        return $this;
-    }
-
-    public function getManualProductNumber(): ?int
-    {
-        return $this->manual_product_number;
-    }
-
-    public function setManualProductNumber(?int $manual_product_number): static
-    {
-        $this->manual_product_number = $manual_product_number;
-
-        return $this;
-    }
-
-    public function getElementProduct(): ?string
-    {
-        return $this->element_product;
-    }
-
-    public function setElementProduct(?string $element_product): static
-    {
-        $this->element_product = $element_product;
-
-        return $this;
-    }
-
-    public function getTravelProduct(): ?string
-    {
-        return $this->travel_product;
-    }
-
-    public function setTravelProduct(?string $travel_product): static
-    {
-        $this->travel_product = $travel_product;
-
-        return $this;
-    }
-
-    public function getElementProductNumber(): ?int
-    {
-        return $this->element_product_number;
-    }
-
-    public function setElementProductNumber(?int $element_product_number): static
-    {
-        $this->element_product_number = $element_product_number;
-
-        return $this;
-    }
-
-    public function getTravelProductNumber(): ?int
-    {
-        return $this->travel_product_number;
-    }
-
-    public function setTravelProductNumber(?int $travel_product_number): static
-    {
-        $this->travel_product_number = $travel_product_number;
-
-        return $this;
+        return $this->productDescriptions;
     }
 }
