@@ -22,11 +22,14 @@
   }
 
   &-login {
-    filter: invert(1);
-
     img {
       width: 2.5rem;
       height: 2.5rem;
+
+      &:hover {
+        filter: brightness(0) saturate(100%) invert(67%) sepia(37%) saturate(1717%) hue-rotate(326deg) brightness(90%)
+          contrast(88%);
+      }
     }
   }
 
@@ -34,6 +37,13 @@
     position: relative;
 
     &-content {
+      &:hover {
+        a {
+          filter: brightness(0) saturate(100%) invert(67%) sepia(37%) saturate(1717%) hue-rotate(326deg) brightness(90%)
+            contrast(88%);
+        }
+      }
+      
       p {
         position: absolute;
         background-color: #fff;
@@ -65,7 +75,7 @@
         transition: 0.3s ease;
 
         & li:hover {
-          color: #D87D4A;
+          color: #d87d4a;
           transition: 0.3s ease;
         }
       }
