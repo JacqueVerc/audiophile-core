@@ -3,18 +3,54 @@
 {% block title %}Audiophile | Order{% endblock %}
 
 {% block body %}
-<main class="login-form">
-    <section>
-        <h1 class="login-title">Customer infos</h1>
+    <main class="login-form">
+        <section>
+            {% if isConfirmed == 1 %}
+                <h1>Your order was successful</h1>
+                {% elseif isConfirmed == 0 %}
+                    <h1>Your order failed, please contact our assistance</h1>
+            {% endif %}
+        </section>
+        <section>
+            {% for cartLine in cartLines %}
+                <div class="summary-article">
+                    <div class="summary-article-left">
+                        <div class="summary-article-img">
+                                <img src="{{asset('/images/products/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />
+                        </div>
+                        <div class="summary-article-text">
+                            <h3>{{ cartLine.product.name | upper }}</h3>
+                            <p>$ {{ cartLine.product.price }}</p>
+                        </div>
+                    </div>
+                    <div class="summary-article-right">
+                        <div class="update-cart">
+                            <div class="update-cart-number">
+                                <p>{{ cartLine.quantity }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+        <section>
+            {% if customer %}
+            <h1 class="login-title">Customer infos</h1>
             <div class="example-wrapper">
-                {% if customer %}
-                    <p>{{ customer.name }}</p>
-                    <p>{{ customer.firstName }}</p>
-                    <p>{{ customer.address }}</p>
-                    <p>{{ customer.phone }}</p>
-                    <p>{{ customer.postalCode }}</p>
-                    <p>{{ customer.city }}</p>
-                    <p>{{ customer.country }}</p>
+
+                <p>{{ customer.name }}</p>
+                <p>{{ customer.firstName }}</p>
+                <p>{{ customer.address }}</p>
+                <p>{{ customer.phone }}</p>
+                <p>{{ customer.postalCode }}</p>
+                <p>{{ customer.city }}</p>
+                <p>{{ customer.country }}</p>
+                <a href="/order/confirm" class="btn btn-orange">Confirm order</a>
+
+                <h1 class="login-title">Change your information</h1>
+                {% else %}
+                <div class="example-wrapper">
+                    <h1 class="login-title">Enter your information</h1>
                 {% endif %}
 
                 {{ form_errors(customerAddressForm) }}
@@ -28,9 +64,9 @@
                 {{ form_row(customerAddressForm.city) }}
                 {{ form_row(customerAddressForm.country) }}
 
-                <button type="submit" class="btn">Register</button>
+                <button type="submit" class="btn">Update</button>
                 {{ form_end(customerAddressForm) }}
             </div>
-    </section>
-</main>
+        </section>
+    </main>
 {% endblock %}
