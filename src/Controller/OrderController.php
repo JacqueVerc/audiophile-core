@@ -84,14 +84,6 @@ class OrderController extends AbstractController
 
         $manager->persist($order);
 
-        $manager->remove($cart);
-
-        $newCart = new Cart();
-        $newCart->setUser($userRepository->findOneBy(['id' => $this->getUser()]));
-
-        $manager->flush();
-
-        $manager->persist($newCart);
         $manager->flush();
         return $this->redirectToRoute('app_order_validate', ['isConfirmed' => true]);
     }

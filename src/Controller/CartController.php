@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class CartController extends AbstractController
 {
     #[Route('/cart', name: 'app_cart')]
-    public function getCartLines(CartProcessor $cartProcessor, CartRepository $cartRepository, CartLineRepository $cartLineRepository): Response
+    public function getCartLines(CartProcessor $cartProcessor): Response
     {
         return $this->render('cart/index.html.twig', $cartProcessor->getCart($this->getUser()));
     }
