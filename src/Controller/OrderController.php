@@ -20,7 +20,6 @@ class OrderController extends AbstractController
     public function getUserAdress(CustomerAdressRepository $customerAdressRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $customer = $customerAdressRepository->findOneBy(['user' => $this->getUser()]);
-
         $customerForm = new CustomerAdress();
         $form = $this->createForm(CustomerAddressFormType::class, $customerForm);
         $form->handleRequest($request);

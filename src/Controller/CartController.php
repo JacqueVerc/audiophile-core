@@ -29,31 +29,39 @@ class CartController extends AbstractController
 
         $sum = 0;
         $quantity = 0;
+        $taxes = 90;
+        $shipping = 50;
 
         foreach ($cartLines as $cartLine) {
             $sum += ($cartLine->getQuantity() * $cartLine->getProduct()->getPrice());
             $quantity += $cartLine->getQuantity();
         }
+
+        $totalSum = $sum + $taxes + $shipping;
+
         return $this->render('cart/index.html.twig', [
             'cartLines' => $cartLines,
             'sum' => $sum,
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'totalSum' => $totalSum,
+            'taxes' => $taxes,
+            'shipping' => $shipping,
         ]);
     }
 
-//    #[Route('/cart/add/{id}', name: 'app_cart_add')]
-//    public function addCartLine($id, CartLineRepository $cartLineRepository, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
-//    {
-//        $cartLine = $cartLineRepository->find($id);
-//
-//        if ($cartLine) {
-//            $cartLine->setQuantity($cartLine->getQuantity() + 1);
-//        }
-//
-//        $entityManager->flush();
-//
-//        return $this->redirectToRoute('app_cart');
-//    }
+    //    #[Route('/cart/add/{id}', name: 'app_cart_add')]
+    //    public function addCartLine($id, CartLineRepository $cartLineRepository, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
+    //    {
+    //        $cartLine = $cartLineRepository->find($id);
+    //
+    //        if ($cartLine) {
+    //            $cartLine->setQuantity($cartLine->getQuantity() + 1);
+    //        }
+    //
+    //        $entityManager->flush();
+    //
+    //        return $this->redirectToRoute('app_cart');
+    //    }
 
 
     #[Route('/cart/remove/{id}', name: 'app_cart_remove')]
@@ -92,6 +100,24 @@ class CartController extends AbstractController
         }
         $cartLine = $cartLineRepository->findCartLineByProductAndCart($id, $this->getUser()->getUserIdentifier());
         $cartProcessor->addToCart($cart, $cartLine, $id, 1);
+
+        return $this->redirectToRoute('app_cart');
+    }
+
+    #[Route('/cart/clear', name: 'app_cart_clear')]
+    public function clearCart(CartRepository $cartRepository, EntityManagerInterface $entityManager): Response
+    {
+        $cart = $cartRepository->findOneBy(['user' => $this->getUser()]);
+
+        if ($cart) {
+            $cartLines = $cart->getCartLines();
+
+            foreach ($cartLines as $cartLine) {
+                $entityManager->remove($cartLine);
+            }
+
+            $entityManager->flush();
+        }
 
         return $this->redirectToRoute('app_cart');
     }

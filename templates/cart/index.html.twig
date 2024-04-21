@@ -6,11 +6,9 @@
     <main class="checkout">
       <section class="checkout-summary container">
         {% if quantity is not same as(0) %}
-          <div clas="checkout-summary-header">
+          <div class="checkout-summary-header">
             <h1>Summary</h1>
-            {# <a href="{{ path('app_clear_cart') }}">
-              Remove All
-            </a> #}
+            <a href="{{ path('app_cart_clear') }}">Remove All</a>
           </div>
           <div class="summary-content">
             {% include('cart/cartPartial.html.twig') %}
@@ -18,23 +16,23 @@
 
           <div class="summary-infos">
             <div class="summary-infos-article">
-              <h2>total</h2>
+              <h2>Articles</h2>
               <p>$ {{ sum }}</p>
-            {# </div>
+            </div>
             <div class="summary-infos-article">
               <h2>Shipping</h2>
-              <p>$ 50</p>
+              <p>$ {{ shipping }}</p>
             </div>
             <div class="summary-infos-article">
               <h2>Estimated Tax</h2>
-              <p>$ 90</p>
+              <p>$ {{ taxes }}</p>
             </div>
             <div class="summary-infos-article">
-              <h2>VAT (included)</h2>
-              <p>$ 200</p>
-            </div> #}
+              <h2>total</h2>
+              <p>$ {{ totalSum }}</p>
+            </div>
           </div>
-          <button class="btn btn-orange">Continue & Pay</button>
+          <a href="/order/validate" class="btn btn-orange">Continue & Pay</a>
 
           {% else %}
             <div class="empty-cart">

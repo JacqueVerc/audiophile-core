@@ -3,43 +3,34 @@
 {% block title %}Audiophile | Order{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper {
-            margin: 1em auto;
-            max-width: 800px;
-            width: 95%;
-            font: 18px/1.5 sans-serif;
-        }
+<main class="login-form">
+    <section>
+        <h1 class="login-title">Customer infos</h1>
+            <div class="example-wrapper">
+                {% if customer %}
+                    <p>{{ customer.name }}</p>
+                    <p>{{ customer.firstName }}</p>
+                    <p>{{ customer.address }}</p>
+                    <p>{{ customer.phone }}</p>
+                    <p>{{ customer.postalCode }}</p>
+                    <p>{{ customer.city }}</p>
+                    <p>{{ customer.country }}</p>
+                {% endif %}
 
-        .example-wrapper code {
-            background: #F5F5F5;
-            padding: 2px 6px;
-        }
-    </style>
+                {{ form_errors(customerAddressForm) }}
 
-    <div class="example-wrapper">
-        {% if customer %}
-            <p>{{ customer.name }}</p>
-            <p>{{ customer.firstName }}</p>
-            <p>{{ customer.address }}</p>
-            <p>{{ customer.phone }}</p>
-            <p>{{ customer.postalCode }}</p>
-            <p>{{ customer.city }}</p>
-            <p>{{ customer.country }}</p>
-        {% endif %}
+                {{ form_start(customerAddressForm) }}
+                {{ form_row(customerAddressForm.name) }}
+                {{ form_row(customerAddressForm.firstName) }}
+                {{ form_row(customerAddressForm.address) }}
+                {{ form_row(customerAddressForm.phone) }}
+                {{ form_row(customerAddressForm.postalCode) }}
+                {{ form_row(customerAddressForm.city) }}
+                {{ form_row(customerAddressForm.country) }}
 
-        {{ form_errors(customerAddressForm) }}
-
-        {{ form_start(customerAddressForm) }}
-        {{ form_row(customerAddressForm.name) }}
-        {{ form_row(customerAddressForm.firstName) }}
-        {{ form_row(customerAddressForm.address) }}
-        {{ form_row(customerAddressForm.phone) }}
-        {{ form_row(customerAddressForm.postalCode) }}
-        {{ form_row(customerAddressForm.city) }}
-        {{ form_row(customerAddressForm.country) }}
-
-        <button type="submit" class="btn">Register</button>
-        {{ form_end(customerAddressForm) }}
-    </div>
+                <button type="submit" class="btn">Register</button>
+                {{ form_end(customerAddressForm) }}
+            </div>
+    </section>
+</main>
 {% endblock %}

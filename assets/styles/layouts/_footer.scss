@@ -112,6 +112,14 @@
         position: relative;
         bottom: 6.3rem;
       }
+
+      & li {
+        &:hover {
+          filter: brightness(0) saturate(100%) invert(67%) sepia(37%) saturate(1717%) hue-rotate(326deg) brightness(90%)
+            contrast(88%);
+          cursor: pointer;
+        }
+      }
     }
   }
 }
