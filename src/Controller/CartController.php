@@ -21,32 +21,9 @@ use Symfony\Component\Routing\Attribute\Route;
 class CartController extends AbstractController
 {
     #[Route('/cart', name: 'app_cart')]
-    public function getCartLines(UserRepository $userRepository, CartRepository $cartRepository, CartLineRepository $cartLineRepository): Response
+    public function getCartLines(CartProcessor $cartProcessor): Response
     {
-        $cart = $cartRepository->findOneBy(['user' => $this->getUser()]);
-
-        $cartLines = $cartLineRepository->findBy(['cart' => $cart]);
-
-        $sum = 0;
-        $quantity = 0;
-        $taxes = 90;
-        $shipping = 50;
-
-        foreach ($cartLines as $cartLine) {
-            $sum += ($cartLine->getQuantity() * $cartLine->getProduct()->getPrice());
-            $quantity += $cartLine->getQuantity();
-        }
-
-        $totalSum = $sum + $taxes + $shipping;
-
-        return $this->render('cart/index.html.twig', [
-            'cartLines' => $cartLines,
-            'sum' => $sum,
-            'quantity' => $quantity,
-            'totalSum' => $totalSum,
-            'taxes' => $taxes,
-            'shipping' => $shipping,
-        ]);
+        return $this->render('cart/index.html.twig', $cartProcessor->getCart($this->getUser()));
     }
 
     //    #[Route('/cart/add/{id}', name: 'app_cart_add')]

@@ -4,18 +4,23 @@ namespace App\Processor;
 
 use App\Entity\Cart;
 use App\Entity\CartLine;
+use App\Repository\CartLineRepository;
+use App\Repository\CartRepository;
 use App\Repository\ProductRepository;
 use Doctrine\DBAL\Driver\Exception;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class CartProcessor
 {
 
     public function __construct(
         private EntityManagerInterface $manager,
-        private ProductRepository $productRepository
+        private ProductRepository $productRepository,
+        private CartRepository $cartRepository,
+        private CartLineRepository $cartLineRepository,
     )
     {}
 
@@ -51,5 +56,33 @@ class CartProcessor
             throw $exception;
 
         }
+    }
+
+    public function getCart(UserInterface $user): array
+    {
+        $cart = $this->cartRepository->findOneBy(['user' => $user]);
+
+        $cartLines = $this->cartLineRepository->findBy(['cart' => $cart]);
+
+        $sum = 0;
+        $quantity = 0;
+        $taxes = 90;
+        $shipping = 50;
+
+        foreach ($cartLines as $cartLine) {
+            $sum += ($cartLine->getQuantity() * $cartLine->getProduct()->getPrice());
+            $quantity += $cartLine->getQuantity();
+        }
+
+        $totalSum = $sum + $taxes + $shipping;
+
+        return [
+            'cartLines' => $cartLines,
+            'sum' => $sum,
+            'quantity' => $quantity,
+            'totalSum' => $totalSum,
+            'taxes' => $taxes,
+            'shipping' => $shipping,
+            ];
     }
 }

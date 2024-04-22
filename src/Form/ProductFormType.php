@@ -23,6 +23,8 @@ class ProductFormType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name',
             ])
+            ->add('feature1')
+            ->add('feature2')
         ;
     }
 
