@@ -5,10 +5,11 @@
 {% block body %}
     <main class="login-form">
         <section>
-            {% if isConfirmed == 1 %}
+            {% if isConfirmed == null %}
+            {% elseif isConfirmed == 1 %}
                 <h1>Your order was successful</h1>
-                {% elseif isConfirmed == 0 %}
-                    <h1>Your order failed, please contact our assistance</h1>
+            {% elseif isConfirmed == 0 %}
+                <h1>Your order failed, please contact our assistance</h1>
             {% endif %}
         </section>
         <section>
@@ -16,7 +17,8 @@
                 <div class="summary-article">
                     <div class="summary-article-left">
                         <div class="summary-article-img">
-                                <img src="{{asset('/images/products/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />
+                            <img src="{{ asset('/images/products/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg') }}"
+                                 alt={{ cartLine.product.name }}/>
                         </div>
                         <div class="summary-article-text">
                             <h3>{{ cartLine.product.name | upper }}</h3>
@@ -34,7 +36,7 @@
             {% endfor %}
         </section>
         <section>
-            {% if customer %}
+            {% if customer and cartLines %}
             <h1 class="login-title">Customer infos</h1>
             <div class="example-wrapper">
 
@@ -51,22 +53,26 @@
                 {% else %}
                 <div class="example-wrapper">
                     <h1 class="login-title">Enter your information</h1>
-                {% endif %}
+                    {% endif %}
 
-                {{ form_errors(customerAddressForm) }}
+                    {{ form_errors(customerAddressForm) }}
 
-                {{ form_start(customerAddressForm) }}
-                {{ form_row(customerAddressForm.name) }}
-                {{ form_row(customerAddressForm.firstName) }}
-                {{ form_row(customerAddressForm.address) }}
-                {{ form_row(customerAddressForm.phone) }}
-                {{ form_row(customerAddressForm.postalCode) }}
-                {{ form_row(customerAddressForm.city) }}
-                {{ form_row(customerAddressForm.country) }}
+                    {{ form_start(customerAddressForm) }}
+                    {{ form_row(customerAddressForm.name) }}
+                    {{ form_row(customerAddressForm.firstName) }}
+                    {{ form_row(customerAddressForm.address) }}
+                    {{ form_row(customerAddressForm.phone) }}
+                    {{ form_row(customerAddressForm.postalCode) }}
+                    {{ form_row(customerAddressForm.city) }}
+                    {{ form_row(customerAddressForm.country) }}
+                    {% if customer %}
+                        <button type="submit" class="btn">Update</button>
+                    {% else %}
+                        <button type="submit" class="btn">Validate</button>
 
-                <button type="submit" class="btn">Update</button>
-                {{ form_end(customerAddressForm) }}
-            </div>
+                    {% endif %}
+                    {{ form_end(customerAddressForm) }}
+                </div>
         </section>
     </main>
 {% endblock %}
