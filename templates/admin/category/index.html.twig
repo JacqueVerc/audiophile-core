@@ -3,50 +3,55 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
 
-<div class="example-wrapper">
-    <div>
-        {% for category in categories %}
-            <div class="summary-article">
-                <div class="summary-article-left">
-                    <div class="summary-article-img">
-                        <a href="/category/{{ category.name }}">
-{#                            <img src="{{asset('/images/category/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />#}
-                        </a>
-                    </div>
-                    <div class="summary-article-text">
-                        <h3>{{ category.name | upper }}</h3>
-                    </div>
-                    <div class="summary-article-text">
-                        <h3>{{ category.description }}</h3>
-                    </div>
-                </div>
-                <div class="summary-article-right">
-                    <div class="update-cart">
-                        <div class="update-cart-number">
-                            <a href="{{ path('app_admin_delete_category', {'id': category.id}) }}" class="btn ">delete</a>
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
+    <div class="example-wrapper">
+        <div class="login register">
+            <section class="login-container container">
+                <h1 class="login-title">Add Category</h1>
+                <div class="login-form">
+                    {% for category in categories %}
+                        <div class="login-form-input">
+                            <h3>{{ category.name | upper }}</h3>
                         </div>
-                    </div>
+                        <div class="summary-article-text">
+                            <h3>{{ category.description }}</h3>
+                        </div>
+                        <a href="{{ path('app_admin_delete_category', {'id': category.id}) }}" class="btn">delete</a>
+                    {% endfor %}
                 </div>
-            </div>
-        {% endfor %}
+            </section>
+        </div>
+        <div class="login register">
+            <section class="login-container container">
+                <h1 class="login-title">Add Category</h1>
+
+                {{ form_errors(categoryForm) }}
+
+                {{ form_start(categoryForm) }}
+
+                <div class="login-form">
+                    <div class="login-form-input">
+                        {{ form_row(categoryForm.name) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(categoryForm.description) }}
+                    </div>
+                    <button type="submit" class="btn btn-orange">Add</button>
+                </div>
+                {{ form_end(categoryForm) }}
+            </section>
+        </div>
     </div>
-{#    <a href="{{ path('app_cart_remove', {'id': cartLine.id}) }}" class="btn ">-</a>#}
-    <div>
-    <h1>Add Category</h1>
-
-    {{ form_errors(categoryForm) }}
-
-    {{ form_start(categoryForm) }}
-    {{ form_row(categoryForm.name) }}
-    {{ form_row(categoryForm.description) }}
-
-    <button type="submit" class="btn">Add</button>
-    {{ form_end(categoryForm) }}
-    </div>
-</div>
 {% endblock %}

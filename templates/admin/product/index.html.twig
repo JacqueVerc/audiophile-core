@@ -18,62 +18,80 @@
     </style>
 
     <div class="example-wrapper">
-        <div>
-            {% for product in products %}
-                <div class="summary-article">
-                    <div class="summary-article-left">
-                        <div class="summary-article-img">
-                            <a href="/category/{{ product.name }}">
-                                {#                            <img src="{{asset('/images/category/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />#}
-                            </a>
+        <main class="profile">
+            <section class="profile-container container">
+                <h1 class="profile-title">Profile</h1>
+                <div class="profile-text">
+                    <div class="profile-user login-form">
+                        <div class="login-form-input">
+                            <label for="inputName">Name</label>
+                            <input type="name" value="{{ app.user.name }}" name="name" id="inputName" class="form-control" autocomplete="name" disabled>
                         </div>
-                        <div class="summary-article-text">
-                            <h3>{{ product.name | upper }}</h3>
-                        </div>
-                        <div class="summary-article-text">
-                            <h3>{{ product.description }}</h3>
-                        </div>
-                        <div class="summary-article-text">
-                            <h3>{{ product.price }}</h3>
-                        </div>
-                        <div class="summary-article-text">
+                        {% for product in products %}
+                            <div class="login-form-input">
+                                <label for="inputName">Name</label>
+                                <input type="name" value="{{ product.name }}" name="name" id="inputName" class="form-control" autocomplete="name" disabled>
+                            </div>
+                            <div class="login-form-input">
+                                <label for="inputName">Description</label>
+                                <input type="description" value="{{ product.description }}" name="name" id="inputName" class="form-control" autocomplete="name" disabled>
+                            </div>
+                            <div class="login-form-input">
+                                <label for="inputName">Price</label>
+                                <input type="price" value="{{ product.price }} $" name="name" id="inputName" class="form-control" autocomplete="name" disabled>
+                            </div>
                             {% if product.available %}
-                            <h3>Available</h3>
+                                <h3>Available</h3>
                             {% else %}
                                 <h3>Not available</h3>
-                                {% endif %}
-                        </div>
-                        <div class="summary-article-text">
-                            <h3>{{ product.slug }}</h3>
-                        </div>
-                    </div>
-                    <div class="summary-article-right">
-                        <div class="update-cart">
-                            <div class="update-cart-number">
-                                <a href="{{ path('app_admin_delete_product', {'id': product.id}) }}" class="btn ">delete</a>
+                            {% endif %}
+                            <div class="login-form-input">
+                                <label for="inputName">Slug</label>
+                                <input type="slug" value="{{ product.slug }}" name="name" id="inputName" class="form-control" autocomplete="name" disabled>
                             </div>
-                        </div>
+                            <a href="{{ path('app_admin_delete_product', {'id': product.id}) }}" class="btn btn-orange">delete</a>
+                        {% endfor %}
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-        <div>
-        <h1>Add Product</h1>
+            </section>
+        </main>
+        <div class="login register">
+            <section class="login-container container">
+                <h1 class="login-title">Add Category</h1>
 
-        {{ form_errors(productForm) }}
+                {{ form_errors(productForm) }}
 
-        {{ form_start(productForm) }}
-        {{ form_row(productForm.name) }}
-        {{ form_row(productForm.description) }}
-        {{ form_row(productForm.price) }}
-        {{ form_row(productForm.available) }}
-        {{ form_row(productForm.slug) }}
-        {{ form_row(productForm.category) }}
-        {{ form_row(productForm.feature1) }}
-        {{ form_row(productForm.feature2) }}
+                {{ form_start(productForm) }}
 
-        <button type="submit" class="btn">Add</button>
-        {{ form_end(productForm) }}
+                <div class="login-form">
+                    <div class="login-form-input">
+                        {{ form_row(productForm.name) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(productForm.description) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(productForm.price) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(productForm.available) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(productForm.slug) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(productForm.category) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(productForm.feature1) }}
+                    </div>
+                    <div class="login-form-input">
+                        {{ form_row(productForm.feature2) }}
+                    </div>
+                    <button type="submit" class="btn btn-orange">Add</button>
+                </div>
+                {{ form_end(productForm) }}
+            </section>
         </div>
     </div>
 {% endblock %}
