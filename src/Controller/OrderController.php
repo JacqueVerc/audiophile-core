@@ -46,7 +46,7 @@ class OrderController extends AbstractController
             $form = $this->createForm(CustomerAddressFormType::class, $customerForm);
         }
         $customer = $customerAdressRepository->findOneBy(['user' => $this->getUser()]);
-
+        // dd($customer);
         $res = array_merge(
             $cartProcessor->getCart($this->getUser()),
             [

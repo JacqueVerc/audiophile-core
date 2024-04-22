@@ -1,0 +1,155 @@
+@use "../base/mixins" as *;
+
+.order {
+  background-color: #fafafa;
+
+  @include mq(laptop) {
+    &-container {
+      display: flex;
+      gap: 3rem;
+    }
+
+    &-form {
+      flex: 1;
+
+      & .login-form {
+        max-width: none;
+      }
+    }
+
+    &-right {
+      height: fit-content;
+      max-width: 35rem;
+    }
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: start;
+  }
+
+  .update-cart {
+    p {
+      font-weight: 700;
+    }
+  }
+
+  &-infos {
+    background-color: #fff;
+    padding: 2.4rem 2.3rem;
+    border-radius: 8px;
+
+    #billings {
+      & img {
+        rotate: 180deg;
+      }
+    }
+
+    &-billings,
+    &-update {
+      width: 100%;
+      display: none;
+      transition: 0.3s ease;
+
+      &.visible {
+        display: block;
+        transition: 0.3s ease;
+      }
+
+      & .login-form-input {
+        margin-top: 1.4rem;
+      }
+    }
+
+    &-hide {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      img {
+        rotate: 0;
+        transition: 0.3s ease;
+      }
+
+      &.visible {
+        transition: 0.3s ease;
+
+        img {
+          transform: rotate(180deg);
+          transition: 0.3s ease;
+        }
+      }
+
+      & h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      & img {
+        width: 18px;
+      }
+    }
+
+    &-title {
+      width: 100%;
+      font-size: 1.3rem;
+      color: #d87d4a;
+      font-weight: 700;
+      line-height: 2.5rem;
+      letter-spacing: 0.929px;
+      text-transform: uppercase;
+
+      &:not(:first-child) {
+        margin-top: 2.4rem;
+      }
+
+      & img {
+        width: 14px;
+      }
+    }
+  }
+
+  .order-summary {
+    @include mq(laptop) {
+      margin-top: 0;
+    }
+  }
+
+  & .order-summary-infos {
+    margin-top: 2.4rem;
+
+    @include mq(laptop) {
+      margin-top: 0;
+    }
+  }
+
+  & .btn {
+    width: 100%;
+  }
+
+  &-right {
+    margin-top: 2.4rem;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2.4rem 2.3rem;
+
+    @include mq(laptop) {
+      margin-top: 0;
+      flex: 1;
+    }
+  }
+
+  & .login-form-input {
+    input {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.25px;
+    }
+  }
+}

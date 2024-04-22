@@ -1,9 +1,16 @@
 @use "../base/mixins" as *;
 
 .checkout {
+    height: 100vh;
+}
+
+.checkout, .order {
   background-color: #fafafa;
-  height: 100vh;
   padding: 3.2rem 0;
+
+  .total {
+    color: #d87d4a;
+  }
 
   &-summary {
     background-color: #fff;
@@ -158,5 +165,9 @@
       letter-spacing: 2px;
       text-align: center;
     }
+  }
+
+  & .btn {
+    width: 100%;
   }
 }

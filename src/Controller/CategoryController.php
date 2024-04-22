@@ -29,15 +29,15 @@ class CategoryController extends AbstractController
     }
 
     #[Route('/{category}/{products}', name: 'app_category_category_produit')]
-    public function getProducts(string $products, ProductRepository $productRepository, ProductDescriptionRepository $productDescriptionRepository): Response
+    public function getProducts(string $products, ProductRepository $productRepository): Response
     {
         $product = $productRepository->findOneBy(['slug' => $products]);
-        $productDescription = $productDescriptionRepository->findBy(['product' => $product]);
+        $productDescriptions = $product->getProductDescriptions()->getValues();
 
-        dd($productDescription);
+        // dd($productDescriptions);
         return $this->render('product/index.html.twig', [
             'product' => $product,
-            // 'productDescriptions' => $productDescriptions,
+            'productDescriptions' => $productDescriptions,
         ]);
     }
 }

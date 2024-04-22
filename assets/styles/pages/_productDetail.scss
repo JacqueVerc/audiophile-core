@@ -13,13 +13,40 @@
       display: flex;
       align-items: center;
       gap: 6.95rem;
+
+      margin: 12rem 0;
+    }
+
+    @include mq(laptop) {
+      gap: 12.5rem;
+    }
+
+    &-img {
+
+      img {
+        border-radius: 8px;
+
+        @include mq(laptop) {
+          max-width: 54rem;
+        }
+      }
+
+
+      @include mq(tablet) {
+        min-width: 28.1rem;
+      }
     }
 
     &-content {
       margin: 3.2rem 0 0 0;
 
+      @include mq(tablet) {
+        max-width: 44.5rem;
+      }
+
       p {
         margin: 2.4rem 0;
+        text-wrap: balance;
       }
 
       &-price {
@@ -80,7 +107,73 @@
 
       & img {
         border-radius: 8px;
-        
+      }
+    }
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 8.8rem;
+  margin-bottom: 12rem;
+
+  @include mq(laptop) {
+    flex-direction: row;
+    gap: 12.5rem;
+
+    p {
+      max-width: 63.5rem;
+    }
+  }
+
+  &-text,
+  &-accessories {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  &-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    letter-spacing: 0.857px;
+  }
+
+  &-accessories {
+    @include mq(tablet) {
+      display: flex;
+      flex-direction: row;
+      gap: 6.95rem;
+    }
+
+    @include mq(laptop) {
+      flex-direction: column;
+      gap: 3.2rem;
+      width: 350px;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      &-item {
+        display: flex;
+        gap: 2.4rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 2.5rem;
+
+        p {
+          opacity: 0.5;
+        }
+
+        span {
+          font-weight: 700;
+          color: #d87d4a;
+        }
       }
     }
   }

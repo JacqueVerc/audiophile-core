@@ -28,13 +28,22 @@
           </div>
         </div>
         <section class="features">
-        <div>
-          <p>{{ product.feature1 }}</p>
-          <p>{{ product.feature2 }}</p>
-          {# {% for description in productDescriptions %}
-              <p>{{ description.text }}</p>
-          {% endfor %} #}
-        </div>
+          <div class="features-text">
+            <h3 class="features-title">FEATURES</h3>
+            <p class="text">{{ product.feature1 }}</p>
+            <p class="text">{{ product.feature2 }}</p>
+          </div>
+          <div class="features-accessories">
+            <h3 class="features-title">IN THE BOX</h3>
+              <div class="features-accessories-content">
+                {% for description in productDescriptions %}
+                  <div class="features-accessories-content-item">
+                    <span>{{ description.quantity }}x</span>
+                    <p>{{ description.name }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+          </div>
         </section>
         <section class="detail-images">
           <picture class="detail-images-picture">
