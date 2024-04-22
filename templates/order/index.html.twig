@@ -5,14 +5,7 @@
 {% block body %}
     <main class="order">
         <div class="order-container container">
-            <section>
-                {# {% if isConfirmed == null %}
-                {% elseif isConfirmed == 1 %}
-                    <h1>Your order was successful</h1>
-                {% elseif isConfirmed == 0 %}
-                    <h1>Your order failed, please contact our assistance</h1>
-                {% endif %}
-            </section> #}
+            {% if isConfirmed == null %}
             <section class="order-form">
                 {% if customer and cartLines %}
                 <div class="order-infos login-form">
@@ -65,6 +58,7 @@
                     {% endif %}
                     <div class="order-infos-update login">
                         {{ form_errors(customerAddressForm) }}
+                        {{ form_start(customerAddressForm) }}
 
                         <div class="login-form">
                             <div class="login-form-input">
@@ -93,11 +87,12 @@
                             <button type="submit" class="btn btn-orange">Update</button>
                         {% else %}
                             <button type="submit" class="btn btn-orange">Validate</button>
-
                         {% endif %}
                         {{ form_end(customerAddressForm) }}
                     </div>
                 </div>
+            </section>
+            <section>
             </section>
             <section class="order-right">
                 {% for cartLine in cartLines %}
@@ -137,8 +132,18 @@
                         <p class="total">$ {{ totalSum }}</p>
                     </div>
                 </div>
-                <a href="/order/confirm" class="btn btn-orange">Confirm order</a>
+                <a href="/order/confirm" class="btn btn-orange btn-confirm">Confirm order</a>
             </section>
         </div>
+        {% elseif isConfirmed == 1 %}
+            <section class="order-confirmation">
+                <img src="{{ asset('/images/icons/icon-order-confirmation.svg') }}" alt="check icon" />
+                <h1>THANK YOU FOR YOUR ORDER</h1>
+                <p class="text">You will receive an email confirmation shortly.</p>
+                <a href="/" class="btn btn-orange">Back to home</a>
+            </section>
+        {% elseif isConfirmed == 0 %}
+            <h1>Your order failed, please contact our assistance</h1>
+        {% endif %}
     </main>
 {% endblock %}
