@@ -2,9 +2,9 @@
 
 .header {
   background-color: #191919;
+  position: relative;
 
   &-container {
-    position: relative;
     padding: 3.2rem 0;
     display: flex;
     justify-content: space-between;

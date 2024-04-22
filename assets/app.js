@@ -43,6 +43,27 @@ if (modal) {
   };
 }
 
+// Pour cacher les forms
+const ordersInfos = document.querySelectorAll(".order-infos-hide");
+const billings = document.getElementById("billings");
+const shippings = document.getElementById("updateForm");
+const infosBillings = document.querySelector(".order-infos-billings");
+const updateInfos = document.querySelector(".order-infos-update");
+
+ordersInfos.forEach((orderInfo) => {{
+  let title = orderInfo.querySelector("h2");
+  console.log(title);
+  title.addEventListener("click", (evt) => {
+    if (orderInfo === billings) {
+      orderInfo.classList.toggle("visible");
+      infosBillings.classList.toggle("visible");
+    } else {
+      shippings.classList.toggle("visible");
+      updateInfos.classList.toggle("visible");
+    }
+  });
+}});
+
 // Modal pour le panier
 // const modalCart = document.querySelector(".header-cart");
 // const showCart = document.querySelector(".modal-cart");

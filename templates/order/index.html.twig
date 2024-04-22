@@ -3,76 +3,142 @@
 {% block title %}Audiophile | Order{% endblock %}
 
 {% block body %}
-    <main class="login-form">
-        <section>
-            {% if isConfirmed == null %}
-            {% elseif isConfirmed == 1 %}
-                <h1>Your order was successful</h1>
-            {% elseif isConfirmed == 0 %}
-                <h1>Your order failed, please contact our assistance</h1>
-            {% endif %}
-        </section>
-        <section>
-            {% for cartLine in cartLines %}
-                <div class="summary-article">
-                    <div class="summary-article-left">
-                        <div class="summary-article-img">
-                            <img src="{{ asset('/images/products/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg') }}"
-                                 alt={{ cartLine.product.name }}/>
+    <main class="order">
+        <div class="order-container container">
+            <section>
+                {# {% if isConfirmed == null %}
+                {% elseif isConfirmed == 1 %}
+                    <h1>Your order was successful</h1>
+                {% elseif isConfirmed == 0 %}
+                    <h1>Your order failed, please contact our assistance</h1>
+                {% endif %}
+            </section> #}
+            <section class="order-form">
+                {% if customer and cartLines %}
+                <div class="order-infos login-form">
+                    <div class="order-infos-hide" id="billings">
+                        <h2>Your informations</h2>
+                        <img src="{{asset('/images/icons/icon-arrow.svg')}}" />
+                    </div>
+                    <div class="order-infos-billings visible">
+                        <h3 class="order-infos-title">Billing details</h3>
+                        <div class="login-form-input">
+                            <label for="inputFirstName">Firstname</label>
+                            <input type="firstName" value="{{ customer.firstName }}" name="firstName" id="inputFirstName" class="form-control" autocomplete="firstName" disabled>
                         </div>
-                        <div class="summary-article-text">
-                            <h3>{{ cartLine.product.name | upper }}</h3>
-                            <p>$ {{ cartLine.product.price }}</p>
+                        <div class="login-form-input">
+                            <label for="inputName">Name</label>
+                            <input type="name" value="{{ customer.name }}" name="name" id="inputName" class="form-control" autocomplete="name" disabled>
+                        </div>
+                        <div class="login-form-input">
+                            <label for="phone">Phone</label>
+                            <input type="number" value="{{ customer.phone }}" name="phone" id="phone" class="form-control" autocomplete="phone" disabled>
+                        </div>
+                        <h3 class="order-infos-title">shipping info</h3>
+                        <div class="login-form-input">
+                            <label for="address">Address</label>
+                            <input type="text" value="{{ customer.address }}" name="address" id="address" class="form-control" autocomplete="address" disabled>
+                        </div>
+                        <div class="login-form-input">
+                            <label for="postalCode">Postal Code</label>
+                            <input type="number" value="{{ customer.postalCode }}" name="postalCode" id="postalCode" class="form-control" autocomplete="postalCode" disabled>
+                        </div>
+                        <div class="login-form-input">
+                            <label for="city">City</label>
+                            <input type="text" value="{{ customer.city }}" name="city" id="city" class="form-control" autocomplete="city" disabled>
+                        </div>
+                        <div class="login-form-input">
+                            <label for="country">Country</label>
+                            <input type="text" value="{{ customer.country }}" name="country" id="country" class="form-control" autocomplete="country" disabled>
                         </div>
                     </div>
-                    <div class="summary-article-right">
-                        <div class="update-cart">
-                            <div class="update-cart-number">
-                                <p>{{ cartLine.quantity }}</p>
+
+                    <div class="order-infos-hide" id="updateForm">
+                        <h2>Change your informations</h2>
+                        <img src="{{asset('/images/icons/icon-arrow.svg')}}" />
+                    </div>
+                    {% else %}
+                    <div class="order-infos-hide" id="updateForm">
+                        <h2>Enter your informations</h2>
+                        <img src="{{asset('/images/icons/icon-arrow.svg')}}" />
+                    </div>
+                    {% endif %}
+                    <div class="order-infos-update login">
+                        {{ form_errors(customerAddressForm) }}
+
+                        <div class="login-form">
+                            <div class="login-form-input">
+                                {{ form_row(customerAddressForm.firstName) }}
+                            </div>
+                            <div class="login-form-input">
+                                {{ form_row(customerAddressForm.name) }}
+                            </div>
+                            <div class="login-form-input">
+                                {{ form_row(customerAddressForm.address) }}
+                            </div>
+                            <div class="login-form-input">
+                                {{ form_row(customerAddressForm.phone) }}
+                            </div>
+                            <div class="login-form-input">
+                                {{ form_row(customerAddressForm.postalCode) }}
+                            </div>
+                            <div class="login-form-input">
+                                {{ form_row(customerAddressForm.city) }}
+                            </div>
+                            <div class="login-form-input">
+                                {{ form_row(customerAddressForm.country) }}
+                            </div>
+                        </div>
+                        {% if customer %}
+                            <button type="submit" class="btn btn-orange">Update</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-orange">Validate</button>
+
+                        {% endif %}
+                        {{ form_end(customerAddressForm) }}
+                    </div>
+                </div>
+            </section>
+            <section class="order-right">
+                {% for cartLine in cartLines %}
+                    <div class="summary-article">
+                        <div class="summary-article-left">
+                            <div class="summary-article-img">
+                                <img src="{{ asset('/images/products/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg') }}"
+                                    alt={{ cartLine.product.name }}/>
+                            </div>
+                            <div class="summary-article-text">
+                                <h3>{{ cartLine.product.name | upper }}</h3>
+                                <p>$ {{ cartLine.product.price }}</p>
+                            </div>
+                        </div>
+                        <div class="summary-article-right">
+                            <div class="update-cart">
+                                <p class="text">x{{ cartLine.quantity }}</p>
                             </div>
                         </div>
                     </div>
+                {% endfor %}
+                <div class="summary-infos">
+                    <div class="summary-infos-article">
+                        <h2>Articles</h2>
+                        <p>$ {{ sum }}</p>
+                    </div>
+                    <div class="summary-infos-article">
+                        <h2>Shipping</h2>
+                        <p>$ {{ shipping }}</p>
+                    </div>
+                    <div class="summary-infos-article">
+                        <h2>Estimated Tax</h2>
+                        <p>$ {{ taxes }}</p>
+                    </div>
+                    <div class="summary-infos-article">
+                        <h2>total</h2>
+                        <p class="total">$ {{ totalSum }}</p>
+                    </div>
                 </div>
-            {% endfor %}
-        </section>
-        <section>
-            {% if customer and cartLines %}
-            <h1 class="login-title">Customer infos</h1>
-            <div class="example-wrapper">
-
-                <p>{{ customer.name }}</p>
-                <p>{{ customer.firstName }}</p>
-                <p>{{ customer.address }}</p>
-                <p>{{ customer.phone }}</p>
-                <p>{{ customer.postalCode }}</p>
-                <p>{{ customer.city }}</p>
-                <p>{{ customer.country }}</p>
                 <a href="/order/confirm" class="btn btn-orange">Confirm order</a>
-
-                <h1 class="login-title">Change your information</h1>
-                {% else %}
-                <div class="example-wrapper">
-                    <h1 class="login-title">Enter your information</h1>
-                    {% endif %}
-
-                    {{ form_errors(customerAddressForm) }}
-
-                    {{ form_start(customerAddressForm) }}
-                    {{ form_row(customerAddressForm.name) }}
-                    {{ form_row(customerAddressForm.firstName) }}
-                    {{ form_row(customerAddressForm.address) }}
-                    {{ form_row(customerAddressForm.phone) }}
-                    {{ form_row(customerAddressForm.postalCode) }}
-                    {{ form_row(customerAddressForm.city) }}
-                    {{ form_row(customerAddressForm.country) }}
-                    {% if customer %}
-                        <button type="submit" class="btn">Update</button>
-                    {% else %}
-                        <button type="submit" class="btn">Validate</button>
-
-                    {% endif %}
-                    {{ form_end(customerAddressForm) }}
-                </div>
-        </section>
+            </section>
+        </div>
     </main>
 {% endblock %}

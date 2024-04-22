@@ -26,21 +26,6 @@ class CartController extends AbstractController
         return $this->render('cart/index.html.twig', $cartProcessor->getCart($this->getUser()));
     }
 
-    //    #[Route('/cart/add/{id}', name: 'app_cart_add')]
-    //    public function addCartLine($id, CartLineRepository $cartLineRepository, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
-    //    {
-    //        $cartLine = $cartLineRepository->find($id);
-    //
-    //        if ($cartLine) {
-    //            $cartLine->setQuantity($cartLine->getQuantity() + 1);
-    //        }
-    //
-    //        $entityManager->flush();
-    //
-    //        return $this->redirectToRoute('app_cart');
-    //    }
-
-
     #[Route('/cart/remove/{id}', name: 'app_cart_remove')]
     public function removeCartLine($id, CartLineRepository $cartLineRepository, EntityManagerInterface $entityManager): Response
     {
