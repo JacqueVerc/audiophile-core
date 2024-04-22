@@ -18,6 +18,46 @@
     </style>
 
     <div class="example-wrapper">
+        <div>
+            {% for product in products %}
+                <div class="summary-article">
+                    <div class="summary-article-left">
+                        <div class="summary-article-img">
+                            <a href="/category/{{ product.name }}">
+                                {#                            <img src="{{asset('/images/category/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />#}
+                            </a>
+                        </div>
+                        <div class="summary-article-text">
+                            <h3>{{ product.name | upper }}</h3>
+                        </div>
+                        <div class="summary-article-text">
+                            <h3>{{ product.description }}</h3>
+                        </div>
+                        <div class="summary-article-text">
+                            <h3>{{ product.price }}</h3>
+                        </div>
+                        <div class="summary-article-text">
+                            {% if product.available %}
+                            <h3>Available</h3>
+                            {% else %}
+                                <h3>Not available</h3>
+                                {% endif %}
+                        </div>
+                        <div class="summary-article-text">
+                            <h3>{{ product.slug }}</h3>
+                        </div>
+                    </div>
+                    <div class="summary-article-right">
+                        <div class="update-cart">
+                            <div class="update-cart-number">
+                                <a href="{{ path('app_admin_delete_product', {'id': product.id}) }}" class="btn ">delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
         <h1>Add Product</h1>
 
         {{ form_errors(productForm) }}
@@ -29,8 +69,11 @@
         {{ form_row(productForm.available) }}
         {{ form_row(productForm.slug) }}
         {{ form_row(productForm.category) }}
+        {{ form_row(productForm.feature1) }}
+        {{ form_row(productForm.feature2) }}
 
         <button type="submit" class="btn">Add</button>
         {{ form_end(productForm) }}
+        </div>
     </div>
 {% endblock %}

@@ -9,6 +9,34 @@
 </style>
 
 <div class="example-wrapper">
+    <div>
+        {% for category in categories %}
+            <div class="summary-article">
+                <div class="summary-article-left">
+                    <div class="summary-article-img">
+                        <a href="/category/{{ category.name }}">
+{#                            <img src="{{asset('/images/category/product-' ~ cartLine.product.slug ~ '/mobile/image-product-' ~ cartLine.product.slug ~ '.jpg')}}" alt={{ cartLine.product.name }} />#}
+                        </a>
+                    </div>
+                    <div class="summary-article-text">
+                        <h3>{{ category.name | upper }}</h3>
+                    </div>
+                    <div class="summary-article-text">
+                        <h3>{{ category.description }}</h3>
+                    </div>
+                </div>
+                <div class="summary-article-right">
+                    <div class="update-cart">
+                        <div class="update-cart-number">
+                            <a href="{{ path('app_admin_delete_category', {'id': category.id}) }}" class="btn ">delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{#    <a href="{{ path('app_cart_remove', {'id': cartLine.id}) }}" class="btn ">-</a>#}
+    <div>
     <h1>Add Category</h1>
 
     {{ form_errors(categoryForm) }}
@@ -17,7 +45,8 @@
     {{ form_row(categoryForm.name) }}
     {{ form_row(categoryForm.description) }}
 
-    <button type="submit" class="btn">Register</button>
+    <button type="submit" class="btn">Add</button>
     {{ form_end(categoryForm) }}
+    </div>
 </div>
 {% endblock %}
