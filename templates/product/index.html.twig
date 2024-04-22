@@ -8,7 +8,6 @@
         {# <a class="goBack text" href="/category/{{category.name}}">
           Go Back
         </a> #}
-
         <div class="detail-product">
           <picture class="detail-product-img">
             <source srcset="{{asset('/images/products/product-' ~ product.slug ~ '/desktop/image-product-' ~ product.slug ~ '.jpg')}}" media="(min-width: 1024px)" />
@@ -32,6 +31,9 @@
         <div>
           <p>{{ product.feature1 }}</p>
           <p>{{ product.feature2 }}</p>
+          {# {% for description in productDescriptions %}
+              <p>{{ description.text }}</p>
+          {% endfor %} #}
         </div>
         </section>
         <section class="detail-images">

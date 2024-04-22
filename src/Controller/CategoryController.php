@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\CartLine;
+use App\Entity\ProductDescription;
 use App\Repository\CartRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\ProductDescriptionRepository;
 use App\Repository\ProductRepository;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,19 +21,23 @@ class CategoryController extends AbstractController
     {
         $category = $categoryRepository->findOneBy(['name' => $category]); // dump and die (dd) the products of the category
         $products = $category->getProducts();
-        
+
         return $this->render('category/index.html.twig', [
             'category' => $category,
             'products' => $products,
         ]);
     }
-    
+
     #[Route('/{category}/{products}', name: 'app_category_category_produit')]
-    public function getProducts(string $products, ProductRepository $productRepository): Response
+    public function getProducts(string $products, ProductRepository $productRepository, ProductDescriptionRepository $productDescriptionRepository): Response
     {
         $product = $productRepository->findOneBy(['slug' => $products]);
+        $productDescription = $productDescriptionRepository->findBy(['product' => $product]);
+
+        dd($productDescription);
         return $this->render('product/index.html.twig', [
             'product' => $product,
+            // 'productDescriptions' => $productDescriptions,
         ]);
     }
 }
