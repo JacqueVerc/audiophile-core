@@ -17,31 +17,31 @@ menu.addEventListener("click", () => {
 });
 
 // Get the modal (nécessite une meilleure organisation du code)
-const modal = document.getElementById("myModal");
-const btn = document.getElementById("myBtn");
-const span = document.querySelector(".close");
+// const modal = document.getElementById("myModal");
+// const btn = document.getElementById("myBtn");
+// const span = document.querySelector(".close");
 
-//  Open the modal
-if (btn) {
-  btn.onclick = () => {
-    modal.style.display = "block";
-  };
-}
+// //  Open the modal
+// if (btn) {
+//   btn.onclick = () => {
+//     modal.style.display = "block";
+//   };
+// }
 
-// Close the modal
-if (span) {
-  span.onclick = () => {
-    modal.style.display = "none";
-  };
-}
+// // Close the modal
+// if (span) {
+//   span.onclick = () => {
+//     modal.style.display = "none";
+//   };
+// }
 
-if (modal) {
-  window.onclick = (event) => {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-}
+// if (modal) {
+//   window.onclick = (event) => {
+//     if (event.target == modal) {
+//       modal.style.display = "none";
+//     }
+//   };
+// }
 
 // Pour cacher les forms
 const ordersInfos = document.querySelectorAll(".order-infos-hide");
@@ -52,7 +52,6 @@ const updateInfos = document.querySelector(".order-infos-update");
 
 ordersInfos.forEach((orderInfo) => {{
   let title = orderInfo.querySelector("h2");
-  console.log(title);
   title.addEventListener("click", (evt) => {
     if (orderInfo === billings) {
       orderInfo.classList.toggle("visible");
@@ -63,6 +62,7 @@ ordersInfos.forEach((orderInfo) => {{
     }
   });
 }});
+
 
 // Modal pour le panier
 // const modalCart = document.querySelector(".header-cart");
