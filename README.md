@@ -41,3 +41,9 @@ Routes pour accéder à l'ajout de catégorie et de produits depuis l'admin.
 [Page admin ajout de produit]([https://audiophile.bwat.live](https://audiophile.bwat.live/admin/add/product))
 
 Pour le paiement ne pas passer par l'admin 
+
+## Infos user
+Identifiants : test@test.fr
+Mot de passe : test1234
+
+Bien sûr vous pouvez créer un utilisateur. 
