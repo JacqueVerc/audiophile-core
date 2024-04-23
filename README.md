@@ -32,3 +32,12 @@ Ajout d'une catégorie -- OK \
 | <img src="https://github.com/JacqueVerc.png" alt="Jacques" width="200"> | <img src="https://github.com/Alexandre-st.png" alt="Alexandre-st" width="200"> |
 | [**Jacques**](https://github.com/JacqueVerc)                                | [**Alexandre**](https://github.com/Alexandre-st)                         |
 
+## Infos admin
+Identifiants : admin@admin.fr
+Mot de passe : admin1234
+
+Routes pour accéder à l'ajout de catégorie et de produits depuis l'admin.
+[Page admin ajout de catégorie]([https://audiophile.bwat.live](https://audiophile.bwat.live/admin/add/category))
+[Page admin ajout de produit]([https://audiophile.bwat.live](https://audiophile.bwat.live/admin/add/product))
+
+Pour le paiement ne pas passer par l'admin 

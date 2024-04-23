@@ -7,8 +7,8 @@
         <div class="order-container container">
             {% if isConfirmed == null %}
             <section class="order-form">
-                {% if customer and cartLines %}
                 <div class="order-infos login-form">
+                {% if customer and cartLines %}
                     <div class="order-infos-hide" id="billings">
                         <h2>Your informations</h2>
                         <img src="{{asset('/images/icons/icon-arrow.svg')}}" />
@@ -51,12 +51,20 @@
                         <img src="{{asset('/images/icons/icon-arrow.svg')}}" />
                     </div>
                     {% else %}
-                    <div class="order-infos-hide" id="updateForm">
+                        {% if customer %}
+                            <div class="order-infos-hide" id="updateForm">
+                        {% else %}
+                            <div class="order-infos-hide visible" id="updateForm">
+                        {% endif %}
                         <h2>Enter your informations</h2>
                         <img src="{{asset('/images/icons/icon-arrow.svg')}}" />
                     </div>
                     {% endif %}
-                    <div class="order-infos-update login">
+                    {% if customer %}
+                        <div class="order-infos-update login">
+                    {% else %}
+                        <div class="order-infos-update login visible" id="updateForm">
+                        {% endif %}
                         {{ form_errors(customerAddressForm) }}
                         {{ form_start(customerAddressForm) }}
 
