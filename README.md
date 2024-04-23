@@ -40,8 +40,8 @@ Identifiants : admin@admin.fr
 Mot de passe : admin1234
 
 Routes pour accéder à l'ajout de catégorie et de produits depuis l'admin.
-[Page admin ajout de catégorie]([https://audiophile.bwat.live](https://audiophile.bwat.live/admin/add/category))
-[Page admin ajout de produit]([https://audiophile.bwat.live](https://audiophile.bwat.live/admin/add/product))
+[Page admin ajout de catégorie](https://audiophile.bwat.live/admin/add/category))
+[Page admin ajout de produit](https://audiophile.bwat.live/admin/add/product))
 
 ## Infos user
 Identifiants : test@test.fr
